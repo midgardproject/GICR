@@ -1,6 +1,6 @@
 namespace GICR {
 
-    public interface Property : GLib.Object {
+    public interface Property : GLib.Object, Item {
 
         public abstract void set_value (Value value, int? type) throws RepositoryError, ValueError;
 
