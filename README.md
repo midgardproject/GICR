@@ -33,9 +33,11 @@ Other Content Repository interfaces:
 * [NoCR](http://github.com/nocr/nocr), Content Repository interfaces for Node.js
 * [PHPCR](http://phpcr.github.com/), Content Repository interfaces for PHP
 
-Related projects from the GNOME space:
+Related projects from the GNOME space, all of which could be providers or consumers of GICR:
 
 * [DesktopCouch](http://www.freedesktop.org/wiki/Specifications/desktopcouch)
+* [evolution-data-server](http://www.go-evolution.org/EDS_Architecture)
+* [libGDA](http://www.gnome-db.org/)
 * [LibGData](https://live.gnome.org/libgdata)
 * [Midgard2](http://new.midgard-project.org/midgard2)
 * [Tracker](http://projects.gnome.org/tracker/)
