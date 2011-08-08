@@ -36,7 +36,7 @@ namespace GICR {
          public abstract PropertyDefinition get_definition () throws RepositoryError;
         */
 
-        public abstract int get_type () throws RepositoryError;
+        public abstract int get_value_type () throws RepositoryError;
 
         public abstract bool is_multiple () throws RepositoryError;
 
