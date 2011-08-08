@@ -45,5 +45,5 @@ Related projects from the GNOME space, all of which could be providers or consum
 
 ## Developers
 
-* Henri Bergius
-* Piotr Pokora
+* [Henri Bergius](http://bergie.iki.fi/)
+* [Piotr Pokora](http://blogs.nemein.com/people/piotras/)
