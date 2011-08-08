@@ -5,9 +5,13 @@ namespace GICR {
 		INTERNAL
 	}
 
+	public errordomain ValueError {
+		
+	}
+
 	public interface Repository : GLib.Object {
 
-		public abstract Session login (Credentials credentials, string? workspace_name) throws RepositoryError;
+	public abstract Session login (Credentials credentials, string? workspace_name) throws RepositoryError;
 
         public abstract string[] get_descriptor_keys ();
 
