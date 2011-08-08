@@ -19,7 +19,7 @@ libgicrincludedir = $(includedir)/gicr
 libgicrinclude_HEADERS = src/gicr.h
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = gicr.pc
+pkgconfig_DATA = $(top_srcdir)/gicr.pc
 
 vapidir = $(datadir)/vala/vapi
 vapi_DATA = \
