@@ -27,8 +27,8 @@ vapi_DATA = \
 	    $(NULL)
 
 gicr_header = $(top_srcdir)/src/gicr.h
-gicr_vapi_file = MidgardCR-3.0.vapi
-gicr_gir_file = MidgardCR-3.0.gir
+gicr_vapi_file = GICR-1.0.vapi
+gicr_gir_file = GICR-1.0.gir
 
 libgicr_la_SOURCES = \
 			  Repository.vala \
