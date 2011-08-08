@@ -1,5 +1,10 @@
 namespace GICR {
 
+    public errordomain ItemError {
+        PATH_NOT_FOUND,
+        ITEM_NOT_FOUND
+    }
+
     public interface Item : GLib.GObject {
 
         public abstract string get_path ();
