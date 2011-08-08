@@ -46,7 +46,7 @@ VALAFLAGS = --vapi=$(gicr_vapi_file) --vapidir=$(top_srcdir)/src  -H $(gicr_head
 CLEANFILES = \
 	     $(gicr_vapi_file) \
 	     $(gicr_header) \
-	     libgicr_la.stamp \
+	     libgicr_la_vala.stamp \
 	     $(libgicr_la_SOURCES:.vala=.c) \
 	     $(gicr_gir_file) \
 	     $(NULL)
@@ -58,6 +58,28 @@ EXTRA_DIST = \
 	     $(NULL)
 
 vapidir = $(datadir)/vala/vapi
-#vapi_DATA = \
-#	    $(top_srcdir)/src/GICR-1.0.vapi \
-#	    $(NULL)
+vapi_DATA = \
+	    $(top_srcdir)/src/GICR-1.0.vapi \
+	    $(NULL)
+
+-include $(INTROSPECTION_MAKEFILE)
+INTROSPECTION_COMPILER_ARGS = --includedir=$(srcdir)
+
+if HAVE_INTROSPECTION
+INTROSPECTION_CFLAGS += $(AM_CFLAGS)
+introspection_sources = $(libgicr_la_SOURCES)
+GICR-1.0.gir: $(lib_LTLIBRARIES)
+GICR_1_0_gir_INCLUDES = GObject-2.0
+GICR_1_0_gir_CFLAGS = $(AM_CFLAGS)
+GICR_1_0_gir_LIBS = $(lib_LTLIBRARIES)
+GICR_1_0_gir_FILES = $(addprefix $(srcdir)/,$(introspection_sources))
+GICR_1_0_gir_PACKAGES = gobject-2.0 
+introspection_file = GICR-1.0.gir
+girdir = $(datadir)/gir-1.0
+gir_DATA = $(introspection_file)
+
+typelibsdir = $(libdir)/girepository-1.0
+typelibs_DATA = $(introspection_file:.gir=.typelib)
+CLEANFILES = $(dist_gir_DATA) $(typelibs_DATA)
+endif
+
