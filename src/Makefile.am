@@ -35,6 +35,7 @@ libgicr_la_SOURCES = \
 			  Session.vala \
 			  Item.vala \
 			  Node.vala \
+			  Property.vala \
 			  $(NULL)
 			  
 libgicr_la_LDFLAGS = -module -export-dynamic @GICR_ABI_MAJOR@:0:0
