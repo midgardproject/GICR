@@ -7,7 +7,7 @@ namespace GICR {
 		public abstract string? get_user_id ();
 		public abstract string[] get_attribute_names () ;
 		public abstract Value get_attribute_name(string name);
-		public abstract Workspace? get_workspace ();
+		/* public abstract Workspace? get_workspace (); */
 		public abstract Node get_root_node () throws RepositoryError;
 		public abstract Session impersonate() throws RepositoryError;
 		public abstract Node get_node_by_identifier (Value id);
@@ -29,7 +29,7 @@ namespace GICR {
 		public abstract string get_namespace_prefix (string uri);
 		public abstract void logout ();
 		public abstract bool is_live ();
-		public abstract AccessControlManager get_access_control_manager ();
+		/* public abstract AccessControlManager get_access_control_manager (); */
 		/* public abstract RetentionManager get_retention_manager (); */
 	}
 }
