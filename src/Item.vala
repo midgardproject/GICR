@@ -5,7 +5,7 @@ namespace GICR {
         ITEM_NOT_FOUND
     }
 
-    public interface Item : GLib.GObject {
+    public interface Item : GLib.Object {
 
         public abstract string get_path ();
 
