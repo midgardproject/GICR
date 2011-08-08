@@ -18,6 +18,19 @@ namespace GICR {
 		public abstract void save ();
 		public abstract void refresh ();
 		public abstract bool has_pending_changes ();
+		public abstract bool has_permisssion (string path, string action);
+		public abstract void check_permission (string path, string action);
+		public abstract bool has_capability (string methodname, Item target, HashTable parameters);
+		public abstract void importXML (string nodepath, string filepath, int behaviour);
+		public abstract void exportSystemView (string absPath, ? STREAM, bool skipBinary, bool recurse);	
+		public abstract void exportDocumentView (string absPath, ? STREAM, bool skipBinary, bool recurse);
+		public abstract void set_namespace_prefix (string prefix, string uri);
+		public abstract string[] get_namespace_prefixes ();
+		public abstract string get_namespace_prefix (string uri);
+		public abstract void logout ();
+		public abstract bool is_live ();
+		public abstract AccessControlManager get_access_control_manager ();
+		public abstract get_retention_manager ();
 	}
 }
 
