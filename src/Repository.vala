@@ -6,7 +6,7 @@ namespace GICR {
 	}
 
 	public errordomain ValueError {
-		
+		VALUE_FORMAT		
 	}
 
 	public interface Repository : GLib.Object {
