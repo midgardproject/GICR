@@ -126,7 +126,7 @@ namespace GICR {
 	/**
 	 * Returns the Session object through which this Workspace object was acquired.
 	 *
-	 * @return a {@link Session object.
+	 * @return a {@link Session} object.
 	 */
 	public abstract Session get_session ();
 
