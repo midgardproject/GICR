@@ -154,28 +154,29 @@ namespace GICR {
 	 * The subgraph rooted at and including N' (call it S') is created and is
 	 * identical to the subgraph rooted at and including N (call it S) with the
 	 * following exceptions:
-	 * - Every node in S' is given a new and distinct identifier
-	 *   - or, if srcWorkspace is given -
-	 *   Every referenceable node in S' is given a new and distinct identifier
-	 *   while every non-referenceable node in S' may be given a new and
-	 *   distinct identifier.
-	 * - The repository may automatically drop any mixin node type T present on
-	 *   any node M in S. Dropping a mixin node type in this context means that
-	 *   while M remains unchanged, its copy M' will lack the mixin T and any
-	 *   child nodes and properties defined by T that are present on M. For
-	 *   example, a node M that is mix:versionable may be copied such that the
-	 *   resulting node M' will be a copy of N except that M' will not be
-	 *   mix:versionable and will not have any of the properties defined by
-	 *   mix:versionable. In order for a mixin node type to be dropped it must
-	 *   be listed by name in the jcr:mixinTypes property of M. The resulting
-	 *   jcr:mixinTypes property of M' will reflect any change.
-	 * - If a node M in S is referenceable and its mix:referenceable mixin is
-	 *   not dropped on copy, then the resulting jcr:uuid property of M' will
-	 *   reflect the new identifier assigned to M'.
-	 * - Each REFERENCE or WEAKEREFERENCE property R in S is copied to its new
-	 *   location R' in S'. If R references a node M within S then the value of
-	 *   R' will be the identifier of M', the new copy of M, thus preserving the
-	 *   reference within the subgraph.
+	 *
+	 * * Every node in S' is given a new and distinct identifier
+	 * or, if srcWorkspace is given 
+	 * Every referenceable node in S' is given a new and distinct identifier
+	 * while every non-referenceable node in S' may be given a new and
+	 * distinct identifier.
+	 * * The repository may automatically drop any mixin node type T present on
+	 * any node M in S. Dropping a mixin node type in this context means that
+	 * while M remains unchanged, its copy M' will lack the mixin T and any
+	 * child nodes and properties defined by T that are present on M. For
+	 * example, a node M that is mix:versionable may be copied such that the
+	 * resulting node M' will be a copy of N except that M' will not be
+	 * mix:versionable and will not have any of the properties defined by
+	 * mix:versionable. In order for a mixin node type to be dropped it must
+	 * be listed by name in the jcr:mixinTypes property of M. The resulting
+	 * jcr:mixinTypes property of M' will reflect any change.
+	 * * If a node M in S is referenceable and its mix:referenceable mixin is
+	 * not dropped on copy, then the resulting jcr:uuid property of M' will
+	 * reflect the new identifier assigned to M'.
+	 * * Each REFERENCE or WEAKEREFERENCE property R in S is copied to its new
+	 * location R' in S'. If R references a node M within S then the value of
+	 * R' will be the identifier of M', the new copy of M, thus preserving the
+	 * reference within the subgraph.
 	 *
 	 * When a node N is copied to a location where a node N' already exists, the
 	 * repository may either immediately throw an ItemExistsException or attempt
@@ -431,26 +432,26 @@ namespace GICR {
 	 * The flag uuidBehavior governs how the identifiers of incoming (deserialized)
 	 * nodes are handled. There are four options:
 	 *
-	 * - ImportUUIDBehavior::IMPORT_UUID_CREATE_NEW: Incoming nodes are assigned newly
-	 *   created identifiers upon addition to the workspace. As a result identifier
-	 *  collisions never occur.
-	 * - ImportUUIDBehavior::IMPORT_UUID_COLLISION_REMOVE_EXISTING: If an incoming node
-	 *   has the same identifier as a node already existing in the workspace, then the
-	 *   already existing node (and its subgraph) is removed from wherever it may be in
-	 *   the workspace before the incoming node is added. Note that this can result in
-	 *   nodes "disappearing" from locations in the workspace that are remote from the
-	 *   location to which the incoming subgraph is being written.
-	 * - ImportUUIDBehavior::IMPORT_UUID_COLLISION_REPLACE_EXISTING: If an incoming node
-	 *   has the same identifier as a node already existing in the workspace then the
-	 *   already existing node is replaced by the incoming node in the same position as
-	 *   the existing node. Note that this may result in the incoming subgraph being
-	 *   disaggregated and "spread around" to different locations in the workspace. In
-	 *   the most extreme case this behavior may result in no node at all being added as
-	 *   child of parentAbsPath. This will occur if the topmost element of the incoming
-	 *   XML has the same identifier as an existing node elsewhere in the workspace.
-	 * - ImportUUIDBehavior::IMPORT_UUID_COLLISION_THROW: If an incoming node has the same
-	 *   identifier as a node already existing in the workspace then a SAXException is
-	 *   thrown by the returned ContentHandler during deserialization.
+	 * * ImportUUIDBehavior::IMPORT_UUID_CREATE_NEW: Incoming nodes are assigned newly
+	 * created identifiers upon addition to the workspace. As a result identifier
+	 * collisions never occur.
+	 * * ImportUUIDBehavior::IMPORT_UUID_COLLISION_REMOVE_EXISTING: If an incoming node
+	 * has the same identifier as a node already existing in the workspace, then the
+	 * already existing node (and its subgraph) is removed from wherever it may be in
+	 * the workspace before the incoming node is added. Note that this can result in
+	 * nodes "disappearing" from locations in the workspace that are remote from the
+	 * location to which the incoming subgraph is being written.
+	 * * ImportUUIDBehavior::IMPORT_UUID_COLLISION_REPLACE_EXISTING: If an incoming node
+	 * has the same identifier as a node already existing in the workspace then the
+	 * already existing node is replaced by the incoming node in the same position as
+	 * the existing node. Note that this may result in the incoming subgraph being
+	 * disaggregated and "spread around" to different locations in the workspace. In
+	 * the most extreme case this behavior may result in no node at all being added as
+	 * child of parentAbsPath. This will occur if the topmost element of the incoming
+	 * XML has the same identifier as an existing node elsewhere in the workspace.
+	 * * ImportUUIDBehavior::IMPORT_UUID_COLLISION_THROW: If an incoming node has the same
+	 * identifier as a node already existing in the workspace then a SAXException is
+	 * thrown by the returned ContentHandler during deserialization.
 	 *
 	 * A SAXException will be thrown by the returned ContentHandler during deserialization
 	 * if the top-most element of the incoming XML would deserialize to a node with the same
@@ -501,28 +502,28 @@ namespace GICR {
 	 * The flag $uuidBehavior governs how the identifiers of incoming (deserialized)
 	 * nodes are handled. There are four options:
 	 *
-	 * - ImportUUIDBehavior::IMPORT_UUID_CREATE_NEW: Incoming nodes are assigned newly
-	 *   created identifiers upon addition to the workspace. As a result identifier
-	 *   collisions never occur.
-	 * - ImportUUIDBehavior::IMPORT_UUID_COLLISION_REMOVE_EXISTING: If an incoming node
-	 *   has the same identifier as a node already existing in the workspace then the
-	 *   already existing node (and its subgraph) is removed from wherever it may be
-	 *   in the workspace before the incoming node is added. Note that this can result
-	 *   in nodes "disappearing" from locations in the workspace that are remote from
-	 *   the location to which the incoming subgraph is being written. If an incoming
-	 *   node has the same identifier as the existing root node of this workspace then
-	 * - ImportUUIDBehavior::IMPORT_UUID_COLLISION_REPLACE_EXISTING: If an incoming node
-	 *   has the same identifier as a node already existing in the workspace then the
-	 *   already existing node is replaced by the incoming node in the same position as
-	 *   the existing node. Note that this may result in the incoming subgraph being
-	 *   disaggregated and "spread around" to different locations in the workspace. In
-	 *   the most extreme edge case this behavior may result in no node at all being
-	 *   added as child of parentAbsPath. This will occur if the topmost element of the
-	 *   incoming XML has the same identifier as an existing node elsewhere in the
-	 *   workspace.
-	 * - ImportUUIDBehavior::IMPORT_UUID_COLLISION_THROW: If an incoming node has the
-	 *   same identifier as a node already existing in the workspace then an
-	 *   ItemExistsException is thrown.
+	 * * ImportUUIDBehavior::IMPORT_UUID_CREATE_NEW: Incoming nodes are assigned newly
+	 * created identifiers upon addition to the workspace. As a result identifier
+	 * collisions never occur.
+	 * * ImportUUIDBehavior::IMPORT_UUID_COLLISION_REMOVE_EXISTING: If an incoming node
+	 * has the same identifier as a node already existing in the workspace then the
+	 * already existing node (and its subgraph) is removed from wherever it may be
+	 * in the workspace before the incoming node is added. Note that this can result
+	 * in nodes "disappearing" from locations in the workspace that are remote from
+	 * the location to which the incoming subgraph is being written. If an incoming
+	 * node has the same identifier as the existing root node of this workspace then
+	 * * ImportUUIDBehavior::IMPORT_UUID_COLLISION_REPLACE_EXISTING: If an incoming node
+	 * has the same identifier as a node already existing in the workspace then the
+	 * already existing node is replaced by the incoming node in the same position as
+	 * the existing node. Note that this may result in the incoming subgraph being
+	 * disaggregated and "spread around" to different locations in the workspace. In
+	 * the most extreme edge case this behavior may result in no node at all being
+	 * added as child of parentAbsPath. This will occur if the topmost element of the
+	 * incoming XML has the same identifier as an existing node elsewhere in the
+	 * workspace.
+	 * * ImportUUIDBehavior::IMPORT_UUID_COLLISION_THROW: If an incoming node has the
+	 * same identifier as a node already existing in the workspace then an
+	 * ItemExistsException is thrown.
 	 *
 	 * @param string parentAbsPath the absolute path of the node below which the deserialized subgraph is added.
 	 * @param string in An URI from which the XML to be deserialized is read.
