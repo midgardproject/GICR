@@ -16,13 +16,14 @@
 
 namespace GICR {
 
+	public errordomain LockException {
+		INTERNAL
+	}
+
 	/**
-	 * Interface for all credentials that may be passed to the Repository::login() method.
-	 *
-	 * Serves as a marker interface that all repositories must implement when
-	 * providing a credentials class.
+	 * This interface encapsulates methods for the management of locks. 
 	 */
-	public interface Credentials : GLib.Object {
-	
+	public interface LockManager : Object {
+
 	}
 }

@@ -17,12 +17,10 @@
 namespace GICR {
 
 	/**
-	 * Interface for all credentials that may be passed to the Repository::login() method.
-	 *
-	 * Serves as a marker interface that all repositories must implement when
-	 * providing a credentials class.
+	 * This interface encapsulates methods for the management of search queries. 
+	 * Provides methods for the creation and retrieval of search queries. 
 	 */
-	public interface Credentials : GLib.Object {
-	
+	public interface QueryManager : Object {
+
 	}
 }
