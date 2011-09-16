@@ -372,10 +372,17 @@ namespace GICR {
 		VALUE_FORMAT		
 	}
 
+	/**
+	 * The entry point into the content repository. 
+	 *
+	 * The Repository object is usually acquired through the RepositoryFactory. 
+	 */
 	public interface Repository : GLib.Object {
 
 	/**
-	 * Authenticates the user using the supplied credentials. If workspaceName is recognized as the name 
+	 * Authenticates the user using the supplied credentials. 
+	 * 
+	 * If workspaceName is recognized as the name 
 	 * of an existing workspace in the repository and authorization to access that workspace is granted, 
 	 * then a new Session object is returned. The format of the string workspaceName depends upon the implementation.
 	 *
@@ -402,12 +409,36 @@ namespace GICR {
 	 */
 	public abstract Session login (Credentials credentials, string? workspace_name) throws RepositoryException;
 
+	/**
+	 * Returns a string array holding all descriptor keys available for this implementation.
+	 *
+	 * Both, the standard descriptors defined by the string constants in this interface and any
+	 * implementation-specific descriptors. Used in conjunction with getDescriptor($key) to query information about
+	 * this repository implementation.
+	 *
+	 * @return array a string array holding all descriptor keys
+	 */
         public abstract string[] get_descriptor_keys ();
 
+	/**
+	 * Determines if the given identifier is a standard descriptor.
+	 *
+	 * Returns true if $key is a standard descriptor defined by the string constants in this interface and
+	 * false if it is either a valid implementation-specific key or not a valid key.
+	 *
+	 * @param key a descriptor key.
+	 * @return boolean whether key is a standard descriptor.
+	 */
         public abstract bool is_standard_descriptor (string key);
-
+	
+	/**
+	 * Get the string value(s) for this key.
+	 *
+	 * @param string $key a descriptor key.
+	 * @return mixed a descriptor value in string form or an array of strings for multivalue descriptors
+	 */
         public abstract Value get_descriptor (string key);
 			
-	}
+	}	
 }
 
