@@ -8,8 +8,8 @@ namespace GICR {
 		public abstract string[] get_attribute_names () ;
 		public abstract Value get_attribute_name(string name);
 		/* public abstract Workspace? get_workspace (); */
-		public abstract Node get_root_node () throws RepositoryError;
-		public abstract Session impersonate() throws RepositoryError;
+		public abstract Node get_root_node () throws RepositoryException;
+		public abstract Session impersonate() throws RepositoryException;
 		public abstract Node get_node_by_identifier (Value id);
 		public abstract Item get_item (string path);
 		public abstract bool item_exists (string path);
