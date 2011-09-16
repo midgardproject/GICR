@@ -16,7 +16,7 @@
 
 namespace GICR {
 
-	public errordomain NoSuchWorkspaceException {
+	public abstract errordomain NoSuchWorkspaceException {
 		INTERNAL
 	}
 
@@ -27,7 +27,7 @@ namespace GICR {
 	 * with the Workspace object. Each Workspace object is associated one-to-one with a Session object. 
 	 * The Workspace object can be acquired by calling Session.getWorkspace () on the associated Session object. 
 	 */
-	public interface Workspace : Object {
+	public abstract interface Workspace : Object {
 
 	/**
 	 * A constant for the name of the workspace root node.
@@ -128,7 +128,7 @@ namespace GICR {
 	 *
 	 * @return a {@link Session object.
 	 */
-	public Session get_session ();
+	public abstract Session get_session ();
 
 	/**
 	 * Returns the name of the actual persistent workspace represented by this Workspace object.
@@ -137,7 +137,7 @@ namespace GICR {
 	 *
 	 * @return string the name of this workspace.
 	 */
-	public string get_name ();
+	public abstract string get_name ();
 
 	/**
 	 * Copies a Node including its children to a new location to the given workspace.
@@ -218,7 +218,7 @@ namespace GICR {
 	 * @throws LockException if a lock prevents the copy.
 	 * @throws RepositoryException if the last element of destAbsPath has an index or if another error occurs.
 	 */
-	public void copy (string srcAbsPath, string destAbsPath, string srcWorkspace = null);
+	public abstract void copy (string srcAbsPath, string destAbsPath, string srcWorkspace = null);
 
 	/**
 	 * Clones the subgraph at the node srcAbsPath in srcWorkspace to the new location at destAbsPath in the current workspace.
@@ -279,7 +279,7 @@ namespace GICR {
 	 * @throws LockException if a lock prevents the clone.
 	 * @throws RepositoryException if the last element of destAbsPath has an index or if another error occurs.
 	 */
-	public void clone_from (string srcWorkspace, string srcAbsPath, string destAbsPath, bool removeExisting);
+	public abstract void clone_from (string srcWorkspace, string srcAbsPath, string destAbsPath, bool removeExisting);
 
 	/**
 	 * Moves the node at srcAbsPath (and its entire subgraph) to the new location at destAbsPath.
@@ -322,7 +322,7 @@ namespace GICR {
 	 * @throws LockException if a lock prevents the move.
 	 * @throws RepositoryException if the last element of destAbsPath has an index or if another error occurs.
 	 */
-	public void move (string srcAbsPath, string destAbsPath);
+	public abstract void move (string srcAbsPath, string destAbsPath);
 
 	/**
 	 * Returns the LockManager object, through which locking methods are accessed.
@@ -331,7 +331,7 @@ namespace GICR {
 	 * @throws UnsupportedRepositoryOperationException if the implementation does not support locking.
 	 * @throws RepositoryException if an error occurs.
 	 */
-	public LockManager get_lock_manager ();
+	public abstract LockManager get_lock_manager ();
 
 	/**
 	 * Returns the QueryManager object, through search methods are accessed.
@@ -339,14 +339,14 @@ namespace GICR {
 	 * @return {@link QueryManager} object.
 	 * @throws RepositoryException if an error occurs.
 	 */
-	public QueryManager get_query_manager ();
+	public abstract QueryManager get_query_manager ();
 
 	/**
 	 * Returns the Transaction object associated with this session
 	 *
 	 * @return {@link Transaction} object.
 	 */
-	public Transaction get_transaction_manager ();
+	public abstract Transaction get_transaction_manager ();
 
 	/**
 	 * Returns the NamespaceRegistry object, which is used to access the mapping between prefixes and namespaces.
@@ -356,7 +356,7 @@ namespace GICR {
 	 * @return NamespaceRegistry the NamespaceRegistry.
 	 * @throws RepositoryException if an error occurs.
 	 */
-	public NamespaceRegistry get_namespace_registry ();
+	public abstract NamespaceRegistry get_namespace_registry ();
 
 	/**
 	 * Returns the NodeTypeManager through which node type information can be queried.
@@ -369,7 +369,7 @@ namespace GICR {
 	 * @return a {@link NodeTypeManager} object.
 	 * @throws RepositoryException if an error occurs.
 	 */
-	public NodeTypeManager get_node_type_manager ();
+	public abstract NodeTypeManager get_node_type_manager ();
 
 	/**
 	 * Returns the ObservationManager object.
@@ -378,7 +378,7 @@ namespace GICR {
 	 * @throws UnsupportedRepositoryOperationException if the implementation does not support observation.
 	 * @throws RepositoryException if an error occurs.
 	 */
-	public ObservationManager get_observation_manager ();
+	public abstract ObservationManager get_observation_manager ();
 
 	/**
 	 * Returns the VersionManager object.
@@ -387,7 +387,7 @@ namespace GICR {
 	 * @throws UnsupportedRepositoryOperationException if the implementation does not support versioning.
 	 * @throws RepositoryException if an error occurs.
 	 */
-	public VersionManager get_version_manager ();
+	public abstract VersionManager get_version_manager ();
 
 	/**
 	 * Gets a set of workspace accessible to the current user.
@@ -402,7 +402,7 @@ namespace GICR {
 	 * @return string array of names of accessible workspaces.
 	 * @throws RepositoryException if an error occurs
 	 */
-	public string[] get_accessible_workspace_names ();
+	public abstract string[] get_accessible_workspace_names ();
 
 	/**
 	 * Returns an ContentHandler which can be used to push SAX events into the repository.
@@ -481,7 +481,7 @@ namespace GICR {
 	 * @throws RepositoryException if another error occurs.
 	 *
 	 */
-    	public ContentHandler get_import_content_handler (string parentAbsPath, int uuidBehavior);
+    	public abstract ContentHandler get_import_content_handler (string parentAbsPath, int uuidBehavior);
 
 	/**
 	 * Deserializes an XML document and adds the resulting item subgraph as a child of the node at $parentAbsPath.
@@ -539,7 +539,7 @@ namespace GICR {
 	 * @throws AccessDeniedException if the session associated with this Workspace object does not have sufficient access to perform the import.
 	 * @throws RepositoryException if another error occurs.
 	 */
-	public void import_xml (string parentAbsPath, string in, int uuidBehavior);
+	public abstract void import_xml (string parentAbsPath, string in, int uuidBehavior);
 
 	/**
 	 * Creates a new Workspace with the specified name. The new workspace is empty, meaning it contains only root node.
@@ -563,7 +563,7 @@ namespace GICR {
 	 * @throws NoSuchWorkspaceException if $srcWorkspace does not exist.
 	 * @throws RepositoryException if another error occurs.
 	 */
-	public void create_workspace (string name, string srcWorkspace = null);
+	public abstract void create_workspace (string name, string srcWorkspace = null);
 
 	/**
 	 * Deletes the workspace with the specified name from the repository, deleting all content within it.
@@ -576,7 +576,7 @@ namespace GICR {
 	 * @throws NoSuchWorkspaceException if $name does not exist.
 	 * @throws RepositoryException if another error occurs.
 	 */
-	public void delete_workspace (string name);
+	public abstract void delete_workspace (string name);
 
 	}
 } 
