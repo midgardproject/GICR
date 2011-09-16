@@ -32,6 +32,7 @@ libgicr_la_SOURCES = \
 		     Node.vala \
 		     Property.vala \
 		     Credentials.vala \
+		     Workspace.vala \
 		     $(NULL)
 			  
 libgicr_la_LDFLAGS = -module -export-dynamic @GICR_ABI_MAJOR@:0:0
