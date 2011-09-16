@@ -26,13 +26,21 @@ gicr_vapi_file = GICR-1.0.vapi
 gicr_gir_file = GICR-1.0.gir
 
 libgicr_la_SOURCES = \
+		     Credentials.vala \
 		     Repository.vala \
 		     Session.vala \
 		     Item.vala \
+		     LockManager.vala \
 		     Node.vala \
 		     Property.vala \
-		     Credentials.vala \
+		     QueryManager.vala \
 		     Workspace.vala \
+		     Transaction.vala \
+		     NamespaceRegistry.vala \
+		     NodeTypeManager.vala \
+		     ObservationManager.vala \
+		     VersionManager.vala \
+		     ContentHandler.vala \
 		     $(NULL)
 			  
 libgicr_la_LDFLAGS = -module -export-dynamic @GICR_ABI_MAJOR@:0:0
