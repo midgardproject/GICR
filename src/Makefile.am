@@ -45,6 +45,7 @@ libgicr_la_SOURCES = \
 		     Errordomains.vala \
 		     ItemVisitor.vala \
 		     Lock.vala \
+		     NodeTypeTemplate.vala
 		     $(NULL)
 			  
 libgicr_la_LDFLAGS = -module -export-dynamic @GICR_ABI_MAJOR@:0:0
