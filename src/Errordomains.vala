@@ -47,6 +47,11 @@ namespace GICR {
 
 	public errordomain InvalidItemStateException {
 		INTERNAL
+	}
+
+	public errordomain NamespaceException {
+		INTERNAL
 	}	
+
 }
 
