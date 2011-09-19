@@ -21,6 +21,10 @@ namespace GICR {
 		VALUE_FORMAT		
 	}
 
+	public errordomain ItemNotFoundException {
+		VALUE_FORMAT		
+	}
+
 	public errordomain ItemExistsException {
 		VALUE_FORMAT		
 	}
