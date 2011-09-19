@@ -53,5 +53,16 @@ namespace GICR {
 		INTERNAL
 	}	
 
+	public errordomain NoSuchNodeTypeException {
+		INTERNAL
+	}	
+
+	public errordomain InvalidNodeTypeDefinitionException {
+		INTERNAL
+	}
+
+	public errordomain NodeTypeExistsException {
+		INTERNAL
+	}
 }
 
