@@ -43,6 +43,10 @@ namespace GICR {
 
 	public errordomain InvalidSerializedDataException {
 		INTERNAL
+	}
+
+	public errordomain InvalidItemStateException {
+		INTERNAL
 	}	
 }
 
