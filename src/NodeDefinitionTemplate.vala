@@ -16,7 +16,7 @@
 
 namespace GICR {
 
-	public interface NodeTypeDefinitionTemplate : Object {
+	public interface NodeDefinitionTemplate : Object {
 
 	}
 }
