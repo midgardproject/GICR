@@ -201,7 +201,7 @@ namespace GICR {
 		 *                                      REFERENCE property or if the current Session does not have sufficent
 		 *                                      privileges to remove the item.
 		 * @throws RepositoryException if another error occurs.
-		 * {@link Session.remove_item()}
+		 * {@link Session.remove}
 		 */
 		public abstract void remove ();
 
