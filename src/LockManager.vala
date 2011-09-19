@@ -37,7 +37,6 @@ namespace GICR {
 		 * @throws LockException if the specified lock token is already held by another Session and the
 		 *                                   implementation does not support simultaneous ownership of open-scoped locks.
 		 * @throws RepositoryException if another error occurs.
-		 * @api
 		 */
 		public abstract void add_lock_token(string lockToken);
 
@@ -54,7 +53,6 @@ namespace GICR {
 		 * @throws AccessDeniedException if the current session does not have sufficient access to get the lock.
 		 * @throws PathNotFoundException if no node is found at $absPath
 		 * @throws RepositoryException if another error occurs.
-		 * @api
 		 */
 		public abstract Lock get_lock(string absPath);
 
@@ -68,7 +66,6 @@ namespace GICR {
 		 * @return array of lock tokens (strings)
 		 *
 		 * @throws RepositoryException if an error occurs.
-		 * @api
 		 */
 		public abstract string[] get_lock_tokens();
 
@@ -85,7 +82,6 @@ namespace GICR {
 		 *
 		 * @throws PathNotFoundException if no node is found at absPath
 		 * @throws RepositoryException if an error occurs.
-		 * @api
 		 */
 		public abstract bool holds_lock(string absPath);
 
@@ -147,7 +143,6 @@ namespace GICR {
 		 * @throws InvalidItemStateException if this node has pending unsaved changes.
 		 * @throws PathNotFoundException if no node is found at $absPath
 		 * @throws RepositoryException if another error occurs.
-		 * @api
 		 */
 		public abstract Lock lock(string absPath, bool isDeep, bool isSessionScoped, int timeoutHint, string ownerInfo);
 
@@ -163,7 +158,6 @@ namespace GICR {
 		 *
 		 * @throws PathNotFoundException if no node is found at $absPath.
 		 * @throws RepositoryException if an error occurs.
-		 * @api
 		 */
 		public abstract bool is_locked(string absPath);
 
@@ -175,7 +169,6 @@ namespace GICR {
 		 *
 		 * @throws LockException if the current Session does not hold the specified lock token.
 		 * @throws RepositoryException if another error occurs.
-		 * @api
 		 */
 		public abstract void remove_lock_token(string lockToken);
 
@@ -207,7 +200,6 @@ namespace GICR {
 		 * @throws InvalidItemStateException if this node has pending unsaved changes.
 		 * @throws PathNotFoundException if no node is found at $absPath
 		 * @throws RepositoryException if another error occurs.
-		 * @api
 		 */
 		public abstract void unlock(string absPath);
 	}
