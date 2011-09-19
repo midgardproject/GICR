@@ -26,9 +26,9 @@ namespace GICR {
 
         public abstract bool get_boolean () throws RepositoryException, ValueError;
 
-        public abstract Node get_node () throws RepositoryException, ItemError;
+        public abstract Node get_node () throws RepositoryException, PathNotFoundException;
 
-        public abstract Property get_property () throws RepositoryException, ItemError;
+        public abstract Property get_property () throws RepositoryException, ItemNotFoundException;
 
         public abstract int get_length () throws RepositoryException;
 
