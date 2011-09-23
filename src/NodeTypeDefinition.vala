@@ -18,12 +18,14 @@ namespace GICR {
 
 	/**
  	 * The NodeTypeDefinition interface provides methods for discovering the
-	 * static definition of a node type. These are accessible both before and
-	 * after the node type is registered. Its subclass NodeType adds methods
-	 * that are relevant only when the node type is "live"; that is, after it
-	 * has been registered. Note that the separate NodeDefinition interface only
-	 * plays a significant role in implementations that support node type
-	 * registration. In those cases it serves as the superclass of both NodeType
+	 * static definition of a node type. 
+	 *
+	 * These are accessible both before and after the node type is registered. 
+	 * Its subclass NodeType adds methods that are relevant only when the node 
+	 * type is "live"; that is, after it has been registered. 
+	 * Note that the separate NodeDefinition interface only plays a significant 
+	 * role in implementations that support node type registration. 
+	 * In those cases it serves as the superclass of both NodeType
 	 * and {@link NodeTypeTemplate}. In implementations that do not support node type
 	 * registration, only objects implementing the subinterface NodeType will
 	 * be encountered.
