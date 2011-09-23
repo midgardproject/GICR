@@ -111,9 +111,9 @@ namespace GICR {
 		 *
 		 * @return True, if the node type is queryable, else false.
 		 *
-		 * @see PropertyDefinition.get_available_query_operators()
-		 * @see PropertyDefinition.is_full_text_searchable()
-		 * @see PropertyDefinition.is_query_orderable()
+		 * @see PropertyDefinition.get_available_query_operators
+		 * @see PropertyDefinition.is_full_text_searchable
+		 * @see PropertyDefinition.is_query_orderable
 		 */
 		public abstract bool is_queryable ();
 
