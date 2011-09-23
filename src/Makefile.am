@@ -49,6 +49,8 @@ libgicr_la_SOURCES = \
 		     NodeTypeDefinition.vala \
 		     NodeDefinitionTemplate.vala \
 		     PropertyDefinitionTemplate.vala \
+		     ItemDefinition.vala \
+		     NodeDefinition.vala \
 		     $(NULL)
 			  
 libgicr_la_LDFLAGS = -module -export-dynamic @GICR_ABI_MAJOR@:0:0
