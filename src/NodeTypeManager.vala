@@ -76,7 +76,7 @@ namespace GICR {
 		 *                                                        node type registration.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract NodeTypeTemplate create_node_type_template (NodeTypeDefinition ntd = null);
+		public abstract NodeTypeTemplate create_node_type_template (NodeTypeDefinition? ntd);
 
 		/**
 		 * Returns an empty NodeDefinitionTemplate which can then be used to create a

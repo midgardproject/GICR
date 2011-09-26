@@ -219,7 +219,7 @@ namespace GICR {
 	 * @throws LockException if a lock prevents the copy.
 	 * @throws RepositoryException if the last element of destAbsPath has an index or if another error occurs.
 	 */
-	public abstract void copy (string srcAbsPath, string destAbsPath, string srcWorkspace = null);
+	public abstract void copy (string srcAbsPath, string destAbsPath, string? srcWorkspace);
 
 	/**
 	 * Clones the subgraph at the node srcAbsPath in srcWorkspace to the new location at destAbsPath in the current workspace.
@@ -564,7 +564,7 @@ namespace GICR {
 	 * @throws NoSuchWorkspaceException if $srcWorkspace does not exist.
 	 * @throws RepositoryException if another error occurs.
 	 */
-	public abstract void create_workspace (string name, string srcWorkspace = null);
+	public abstract void create_workspace (string name, string? srcWorkspace);
 
 	/**
 	 * Deletes the workspace with the specified name from the repository, deleting all content within it.

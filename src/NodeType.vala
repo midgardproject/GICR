@@ -396,7 +396,7 @@ namespace GICR {
 		 * @param nodeTypeName The name of the node type of the child node.
 		 * @return bool True, if the node type allows the addition of a child node, else false.
 		 */
-		public abstract bool can_add_child_node (string childNodeName, string nodeTypeName = null);
+		public abstract bool can_add_child_node (string childNodeName, string? nodeTypeName);
 
 		/**
 		 * Reports if the node type allows the removal of the given node.
