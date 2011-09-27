@@ -64,5 +64,17 @@ namespace GICR {
 	public errordomain NodeTypeExistsException {
 		INTERNAL
 	}
+
+	public errordomain InvalidArgumentException {
+		INTERNAL
+	}
+	
+	public errordomain InvalidLifecycleTransitionException {
+		INTERNAL
+	}
+
+	public errordomain ValueFormatException {
+		INTERNAL
+	}
 }
 
