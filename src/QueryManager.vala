@@ -16,10 +16,6 @@
 
 namespace GICR {
 
-	/**
-	 * This interface encapsulates methods for the management of search queries. 
-	 * Provides methods for the creation and retrieval of search queries. 
-	 */
 	public interface QueryManager : Object {
 
 	}
