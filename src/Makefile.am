@@ -52,6 +52,9 @@ libgicr_la_SOURCES = \
 		     ItemDefinition.vala \
 		     NodeDefinition.vala \
 		     PropertyDefinition.vala \
+		     Event.vala \
+		     EventJournal.vala \
+		     EventListener.vala \
 		     $(NULL)
 			  
 libgicr_la_LDFLAGS = -module -export-dynamic @GICR_ABI_MAJOR@:0:0
