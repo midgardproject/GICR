@@ -16,7 +16,24 @@
 
 namespace GICR {
 
-	public interface Event : Object {
+	/**
+	 * An EventJournal is an extended Iterator that provides the additional
+	 * method skip_to().
+	 *
+	 * All elements in this iterator are of type Event.
+	 */
 
+	public interface EventJournal : Object {
+
+		/**
+		 * Skip all elements of the iterator earlier than date.
+		 *
+		 * If an attempt is made to skip past the last element of the iterator, no
+		 * exception is thrown but the subsequent next() will fail.
+		 *
+		 * @param integer $date Value that represents an offset in milliseconds from the epoch.
+		 * @return void
+		 */
+		public abstract void skip_to(int date);
 	}
 }
