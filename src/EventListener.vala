@@ -16,7 +16,22 @@
 
 namespace GICR {
 
-	public interface Event : Object {
+	/**
+ 	* An event listener.
+	 *
+	 * An EventListener can be registered via the ObservationManager object. Event
+	 * listeners are notified asynchronously, and see events after they occur and
+	 * the transaction is committed. An event listener only sees events for which
+	 * the session that registered it has sufficient access rights.
+	 */
+	public interface EventListener : Object {
 
+		/**
+		 * This method is called when a bundle of events is dispatched.
+		 *
+		 * @param events The event set received.
+		 * @return void
+		 */
+		public abstract void on_event (Event[] events);
 	}
 }
