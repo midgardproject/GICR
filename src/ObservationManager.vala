@@ -36,18 +36,18 @@ namespace GICR {
 		 * formerly at) the path returned by EventInterface::getPath(). The following
 		 * restrictions are available:
 		 * * absPath, isDeep: Only events whose associated parent node is at absPath (or
-		 *   within its subgraph, if isDeep is true) will be received. It is permissible
-		 *   to register a listener for a path where no node currently exists.
+		 * within its subgraph, if isDeep is true) will be received. It is permissible
+		 * to register a listener for a path where no node currently exists.
 		 * * uuid: Only events whose associated parent node has one of the identifiers in
-		 *   this list will be received. If his parameter is null then no identifier-
-		 *   related restriction is placed on events received. Note that specifying an
-		 *   empty array instead of null would result in no nodes being listened to. The
-		 *   term "UUID" is used for compatibility with JCR 1.0.
+		 * this list will be received. If his parameter is null then no identifier-
+		 * related restriction is placed on events received. Note that specifying an
+		 * empty array instead of null would result in no nodes being listened to. The
+		 * term "UUID" is used for compatibility with JCR 1.0.
 		 * * nodeTypeName: Only events whose associated parent node has one of the node
-		 *   types (or a subtype of one of the node types) in this list will be received.
-		 *   If his parameter is null then no node type-related restriction is placed on
-		 *   events received. Note that specifying an empty array instead of null would
-		 *   result in no nodes types being listened to.
+		 * types (or a subtype of one of the node types) in this list will be received.
+		 * If his parameter is null then no node type-related restriction is placed on
+		 * events received. Note that specifying an empty array instead of null would
+		 * result in no nodes types being listened to.
 		 *
 		 * The restrictions are "ANDed" together. In other words, for a particular node
 		 * to be "listened to" it must meet all the restrictions.
