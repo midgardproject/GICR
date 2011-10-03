@@ -58,6 +58,7 @@ libgicr_la_SOURCES = \
 		     Query.vala \
 		     QueryObjectModelFactory.vala \
 		     QueryResult.vala \
+		     Row.vala \
 		     $(NULL)
 			  
 libgicr_la_LDFLAGS = -module -export-dynamic @GICR_ABI_MAJOR@:0:0
