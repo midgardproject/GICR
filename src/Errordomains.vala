@@ -80,5 +80,13 @@ namespace GICR {
 	public errordomain InvalidQueryException {
 		INTERNAL
 	}
+
+	public errordomain ReferentialIntegrityException {
+		INTERNAL
+	}
+
+	public errordomain AccessControlException {
+		INTERNAL
+	}
 }
 
