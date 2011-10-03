@@ -56,6 +56,8 @@ libgicr_la_SOURCES = \
 		     EventJournal.vala \
 		     EventListener.vala \
 		     Query.vala \
+		     QueryObjectModelFactory.vala \
+		     QueryResult.vala \
 		     $(NULL)
 			  
 libgicr_la_LDFLAGS = -module -export-dynamic @GICR_ABI_MAJOR@:0:0
