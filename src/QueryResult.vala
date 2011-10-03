@@ -26,7 +26,7 @@ namespace GICR {
 		 *
 		 * @return An array holding the column names.
 		 *
-		 * @throws \PHPCR\RepositoryException if an error occurs.
+		 * @throws RepositoryException if an error occurs.
 		 */
 		public abstract string[] get_column_names ();
 
@@ -35,7 +35,7 @@ namespace GICR {
 		 *
 		 * The rows are returned according to the ordering specified in the query.
 		 *
-		 * @throws \PHPCR\RepositoryException if this call is the second time either get_rows or get_nodes
+		 * @throws RepositoryException if this call is the second time either get_rows or get_nodes
 		 *                                    has been called on the same QueryResult object or if another error occurs.
 		 */
 		public abstract Row[] get_rows ();
@@ -49,7 +49,7 @@ namespace GICR {
 		 * int < 0/true means all, 0/false means none, int > 0 means the prefetch chunk size or none
 		 * @return an array of {@link Node} objects 
 		 *
-		 * @throws \PHPCR\RepositoryException if the query contains more than one selector, if this call is
+		 * @throws RepositoryException if the query contains more than one selector, if this call is
 		 *                                    the second time either get_rows or get_nodes has been called on the
 		 *                                    same QueryResult object or if another error occurs.
 		 */
@@ -63,7 +63,7 @@ namespace GICR {
 		 *
 		 * @return array holding the selector names.
 		 *
-		 * @throws \PHPCR\RepositoryException if an error occurs.
+		 * @throws RepositoryException if an error occurs.
 		 */
 		public abstract string[] get_selector_names ();
 	}
