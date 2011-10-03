@@ -45,7 +45,7 @@ namespace GICR {
 		 *
 		 * The nodes are returned according to the ordering specified in the query.
 		 *
-		 * @param  int prefetch If to prefetch or not
+		 * @param int prefetch If to prefetch or not
 		 * int < 0/true means all, 0/false means none, int > 0 means the prefetch chunk size or none
 		 * @return an array of {@link Node} objects 
 		 *
