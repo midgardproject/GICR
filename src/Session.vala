@@ -377,15 +377,15 @@ namespace GICR {
 		 * The actions parameter is a comma separated list of action strings.
 		 * The following action strings are defined:
 		 *
-		 * - add_node: If hasPermission(path, "add_node") returns true, then this
-		 *             Session has permission to add a node at path.
-		 * - set_property: If hasPermission(path, "set_property") returns true, then
-		 *                 this Session has permission to set (add or change) a property at path.
-		 * - remove: If hasPermission(path, "remove") returns true, then this Session
-		 *           has permission to remove an item at path.
-		 * - read: If hasPermission(path, "read") returns true, then this Session has
-		 *         permission to retrieve (and read the value of, in the case of a property)
-		 *         an item at path.
+		 * * add_node: If hasPermission(path, "add_node") returns true, then this
+		 * Session has permission to add a node at path.
+		 * * set_property: If hasPermission(path, "set_property") returns true, then
+		 * this Session has permission to set (add or change) a property at path.
+		 * * remove: If hasPermission(path, "remove") returns true, then this Session
+		 * has permission to remove an item at path.
+		 * * read: If hasPermission(path, "read") returns true, then this Session has
+		 * permission to retrieve (and read the value of, in the case of a property)
+		 * an item at path.
 		 *
 		 * When more than one action is specified in the actions parameter, this method
 		 * will only return true if this Session has permission to perform all of the
@@ -415,16 +415,16 @@ namespace GICR {
 		 * The actions parameter is a comma separated list of action strings. The following
 		 * action strings are defined:
 		 *
-		 * - add_node: If checkPermission(path, "add_node") returns quietly, then this Session
-		 *             has permission to add a node at path, otherwise permission is denied.
-		 * - set_property: If checkPermission(path, "set_property") returns quietly, then this
-		 *                 Session has permission to set (add or change) a property at path, otherwise
-		 *                 permission is denied.
-		 * - remove: If checkPermission(path, "remove") returns quietly, then this Session
-		 *           has permission to remove an item at path, otherwise permission is denied.
-		 * - read: If checkPermission(path, "read") returns quietly, then this Session has
-		 *         permission to retrieve (and read the value of, in the case of a property) an
-		 *         item at path, otherwise permission is denied.
+		 * * add_node: If checkPermission(path, "add_node") returns quietly, then this Session
+		 * has permission to add a node at path, otherwise permission is denied.
+		 * * set_property: If checkPermission(path, "set_property") returns quietly, then this
+		 * Session has permission to set (add or change) a property at path, otherwise
+		 * permission is denied.
+		 * * remove: If checkPermission(path, "remove") returns quietly, then this Session
+		 * has permission to remove an item at path, otherwise permission is denied.
+		 * * read: If checkPermission(path, "read") returns quietly, then this Session has
+		 * permission to retrieve (and read the value of, in the case of a property) an
+		 * item at path, otherwise permission is denied.
 		 *
 		 * When more than one action is specified in the actions parameter, this method
 		 * will only return true if this Session has permission to perform all of the
@@ -441,7 +441,7 @@ namespace GICR {
 		 * @param actions an array of action strings.
 		 * @return void
 		 *
-		 * @throws Security\AccessControlException If permission is denied.
+		 * @throws AccessControlException If permission is denied.
 		 * @throws RepositoryException if another error occurs.
 		 */
 		public abstract void check_permission (string absPath, string[] actions);
@@ -450,12 +450,12 @@ namespace GICR {
 		 * Checks whether an operation can be performed given as much context as can
 		 * be determined by the repository, including:
 		 *
-		 * - Permissions granted to the current user, including access control privileges.
-		 * - Current state of the target object (reflecting locks, checkin/checkout
-		 *   status, retention and hold status etc.).
-		 * - Repository capabilities.
-		 * - Node type-enforced restrictions.
-		 * - Repository configuration-specific restrictions.
+		 * * Permissions granted to the current user, including access control privileges.
+		 * * Current state of the target object (reflecting locks, checkin/checkout
+		 * status, retention and hold status etc.).
+		 * * Repository capabilities.
+		 * * Node type-enforced restrictions.
+		 * * Repository configuration-specific restrictions.
 		 *
 		 * The implementation of this method is best effort: returning false guarantees
 		 * that the operation cannot be performed, but returning true does not guarantee
@@ -471,11 +471,10 @@ namespace GICR {
 		 * mapping to parameter value.
 		 *
 		 * For example, given a Session s and Node n then
-		 * <pre>
-		 *
+		 * 
 		 * p['relPath'] = "foo";
 		 * b = s.has_capability ("addNode", n, p);
-		 * </pre>
+		 * 
 		 *
 		 * will result in b == false if a child node called foo cannot be added to
 		 * the node n within the session s.
@@ -509,38 +508,38 @@ namespace GICR {
 		 * The flag uuidBehavior governs how the identifiers of incoming nodes are
 		 * handled. There are four options:
 		 *
-		 * - ImportUUIDBehavior::IMPORT_UUID_CREATE_NEW: Incoming nodes are added in the same
-		 *   way that new node is added with Node.addNode(). That is, they are either assigned
-		 *   newly created identifiers upon addition or upon save (depending on the implementation,
-		 *   see 4.9.1.1 When Identifiers are Assigned in the specification). In either case,
-		 *   identifier collisions will not occur.
-		 * - ImportUUIDBehavior::IMPORT_UUID_COLLISION_REMOVE_EXISTING: If an incoming node has
-		 *   the same identifier as a node already existing in the workspace then the already
-		 *   existing node (and its subgraph) is removed from wherever it may be in the workspace
-		 *   before the incoming node is added. Note that this can result in nodes "disappearing"
-		 *   from locations in the workspace that are remote from the location to which the
-		 *   incoming subgraph is being written. Both the removal and the new addition will be
-		 *   dispatched on save.
-		 * - ImportUUIDBehavior::IMPORT_UUID_COLLISION_REPLACE_EXISTING: If an incoming node
-		 *   has the same identifier as a node already existing in the workspace, then the
-		 *   already-existing node is replaced by the incoming node in the same position as
-		 *   the existing node. Note that this may result in the incoming subgraph being
-		 *   disaggregated and "spread around" to different locations in the workspace. In the
-		 *   most extreme case this behavior may result in no node at all being added as child
-		 *   of parentAbsPath. This will occur if the topmost element of the incoming XML has
-		 *   the same identifier as an existing node elsewhere in the workspace. The change
-		 *   will be dispatched on save.
-		 * - ImportUUIDBehavior::IMPORT_UUID_COLLISION_THROW: If an incoming node has the same
-		 *   identifier as a node already existing in the workspace then an
-		 *   ItemExistsException is thrown.
-		 *   Unlike Workspace.import_xml, this method does not
-		 *   necessarily enforce all node type constraints during deserialization.
-		 *   Those that would be immediately enforced in a normal write method (Node.addNode(),
-		 *   Node.setProperty etc.) of this implementation cause an immediate
-		 *   ConstraintViolationException during deserialization. All other constraints are
-		 *   checked on save, just as they are in normal write operations. However, which node
-		 *   type constraints are enforced depends upon whether node type information in the
-		 *   imported data is respected, and this is an implementation-specific issue.
+		 * * ImportUUIDBehavior::IMPORT_UUID_CREATE_NEW: Incoming nodes are added in the same
+		 * way that new node is added with Node.addNode(). That is, they are either assigned
+		 * newly created identifiers upon addition or upon save (depending on the implementation,
+		 * see 4.9.1.1 When Identifiers are Assigned in the specification). In either case,
+		 * identifier collisions will not occur.
+		 * * ImportUUIDBehavior::IMPORT_UUID_COLLISION_REMOVE_EXISTING: If an incoming node has
+		 * the same identifier as a node already existing in the workspace then the already
+		 * existing node (and its subgraph) is removed from wherever it may be in the workspace
+		 * before the incoming node is added. Note that this can result in nodes "disappearing"
+		 * from locations in the workspace that are remote from the location to which the
+		 * incoming subgraph is being written. Both the removal and the new addition will be
+		 * dispatched on save.
+		 * * ImportUUIDBehavior::IMPORT_UUID_COLLISION_REPLACE_EXISTING: If an incoming node
+		 * has the same identifier as a node already existing in the workspace, then the
+		 * already-existing node is replaced by the incoming node in the same position as
+		 * the existing node. Note that this may result in the incoming subgraph being
+		 * disaggregated and "spread around" to different locations in the workspace. In the
+		 * most extreme case this behavior may result in no node at all being added as child
+		 * of parentAbsPath. This will occur if the topmost element of the incoming XML has
+		 * the same identifier as an existing node elsewhere in the workspace. The change
+		 * will be dispatched on save.
+		 * * ImportUUIDBehavior::IMPORT_UUID_COLLISION_THROW: If an incoming node has the same
+		 * identifier as a node already existing in the workspace then an
+		 * ItemExistsException is thrown.
+		 * Unlike Workspace.import_xml, this method does not
+		 * necessarily enforce all node type constraints during deserialization.
+		 * Those that would be immediately enforced in a normal write method (Node.addNode(),
+		 * Node.setProperty etc.) of this implementation cause an immediate
+		 * ConstraintViolationException during deserialization. All other constraints are
+		 * checked on save, just as they are in normal write operations. However, which node
+		 * type constraints are enforced depends upon whether node type information in the
+		 * imported data is respected, and this is an implementation-specific issue.
 		 *
 		 * @param parentAbsPath the absolute path of the node below which the deserialized subgraph is added.
 		 * @param uri An URI from which the XML to be deserialized is read.
