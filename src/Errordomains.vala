@@ -76,5 +76,9 @@ namespace GICR {
 	public errordomain ValueFormatException {
 		INTERNAL
 	}
+
+	public errordomain InvalidQueryException {
+		INTERNAL
+	}
 }
 
