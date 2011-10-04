@@ -66,6 +66,7 @@ libgicr_la_SOURCES = \
 		     AccessControlPolicy.vala \
 		     AccessControlList.vala \
 		     NamedAccessControlPolicy.vala \
+		     AccessControlEntry.vala \
 		     $(NULL)
 			  
 libgicr_la_LDFLAGS = -module -export-dynamic @GICR_ABI_MAJOR@:0:0
