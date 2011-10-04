@@ -16,6 +16,12 @@
 
 namespace GICR {
 
+	/**
+	 * The AccessControlPolicy is a marker interface for all kind of access control
+	 * policies. This API defines two subinterfaces:
+	 * - NamedAccessControlPolicy
+	 * - AccessControlList
+	 */
 	public interface AccessControlPolicy : Object {
 
 	}
