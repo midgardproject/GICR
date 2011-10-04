@@ -16,7 +16,24 @@
 
 namespace GICR {
 
+	/**
+	 * An AccessControlEntry represents the association of one or more Privilege
+	 * objects with a specific Principal.
+	 */
 	public interface AccessControlEntry : Object {
 
+		/**
+		 * Returns the principal associated with this access control entry.
+		 *
+		 * @return java.security.Principal a Principal FIXME TODO what to do with principal type?.
+		 */
+		public abstract void get_principal ();
+
+ 		/**
+		 * Returns the privileges associated with this access control entry.
+		 *
+		 * @return an array of {@link Privilege} objects.
+		 */
+		public abstract Privilege[] get_privileges ();
 	}
 }
