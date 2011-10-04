@@ -16,7 +16,23 @@
 
 namespace GICR {
 
+	/**
+	 * An NamedAccessControlPolicy is an opaque access control policy that is described
+	 * by a JCR name and optionally a description. 
+	 * 
+	 * NamedAccessControlPolicy are immutable and can therefore be directly applied to 
+	 * a node without additional configuration step.
+	 */
 	public interface NamedAccessControlPolicy : Object, AccessControlPolicy {
 
+		/**
+		 * Returns the name of the access control policy, which is JCR name and should
+		 * be unique among the choices applicable to any particular node.
+		 *
+		 * @return the name of the access control policy. A JCR name.
+		 *
+		 * @throws RepositoryException if an error occurs.
+		 */
+		public abstract string get_name ();
 	}
 }
