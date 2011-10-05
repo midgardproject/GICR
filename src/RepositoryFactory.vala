@@ -46,15 +46,5 @@ namespace GICR {
 		 * @throws RepositoryException if no suitable repository is found or another error occurs.
 		 */
 		public abstract Repository get_repository (HashTable? parameters);
-
-		/**
-		 * Get the list of configuration options that can be passed to getRepository
-		 *
-		 * The description string should include whether the key is mandatory or
-		 * optional.
-		 *
-		 * @return hash map of configuration key => english description
-		 */
-		public abstract HashTable get_configuration_keys ();
 	}
 }
