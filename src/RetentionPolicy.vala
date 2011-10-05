@@ -16,7 +16,18 @@
 
 namespace GICR {
 
+	/**
+	 * A RetentionPolicy is an object with a name and an optional description.
+	 */
 	public interface RetentionPolicy : Object {
 
+		/**
+		 * Returns the name of the retention policy. A JCR name.
+		 *
+		 * @return the name of the access control policy. A JCR name.
+		 *
+		 * @throws RepositoryException if an error occurs.
+		 */
+		public abstract string get_name ();
 	}
 }
