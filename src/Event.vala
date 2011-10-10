@@ -97,7 +97,7 @@ namespace GICR {
 		 * * PERSIST
 		 * @return the type of this event.
 		 */
-		public abstract int get_type ();
+		public abstract int get_event_type ();
 
 		/**
 		 * Returns the absolute path associated with this event or null if this
