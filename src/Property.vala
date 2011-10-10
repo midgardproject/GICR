@@ -674,7 +674,7 @@ namespace GICR {
 		 *
 		 * @throws RepositoryException if an error occurs
 		 */
-		public abstract int get_type ();
+		public abstract int get_property_type ();
 
 		/**
 		 * Determines if the current property is multi-valued.
