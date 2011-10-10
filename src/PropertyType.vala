@@ -201,8 +201,9 @@ namespace GICR {
 		 *
 		 * @throws InvalidArgumentException if the given type is unknown.
 		 */
-		public string name_from_value (int type)
+		public string? name_from_value (int type)
     		{
+			return null;
 		}
 
 		/**
@@ -215,6 +216,7 @@ namespace GICR {
 		 */
 		public int value_from_name (string name)
     		{
+			return 0;
 		}
 	}
 }
