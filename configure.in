@@ -42,6 +42,13 @@ esac
 AC_MSG_RESULT($platform_win32)
 AM_CONDITIONAL(PLATFORM_WIN32, test x$platform_win32 = xyes)
 
+AC_PATH_PROG(VALAC, valac, no)
+if test "x$VALAC" = "xno"; then
+	AC_MSG_ERROR([Cannot find the "valac" compiler in your PATH])
+fi
+VAPIDIR=`pkg-config --variable=vapidir libvala-0.14`
+AC_SUBST(VAPIDIR)
+
 LIBS="$LIBS $GICR_LIBS"
 
 AC_SUBST(LIBS)
