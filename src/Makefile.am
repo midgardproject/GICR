@@ -95,7 +95,7 @@ EXTRA_DIST = \
 	     m4/introspection.m4 \
 	     $(NULL)
 
-vapidir = @VAPIDIR@
+vapidir = $(datadir)/vala/vapi
 vapi_DATA = \
 	    $(top_srcdir)/src/$(gicr_vapi_file) \
 	    $(NULL)
