@@ -170,7 +170,7 @@ namespace GICR {
 		 * @throws PathNotFoundException if no accessible property is found at the specified path.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract Property get_property (string absPath);
+		public abstract Property get_node_property (string absPath);
 
 		/**
 		 * Determines if the item identified by a path does exists.
