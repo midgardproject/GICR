@@ -80,7 +80,7 @@ namespace GICR {
 		 * @param name The name of an attribute passed in the credentials used to acquire this session.
 		 * @return The value of the attribute or null if no attribute of the given name exists.
 		 */
-		public abstract Value get_attribute (string name);
+		public abstract Value? get_attribute (string name);
 
 		/**
 		 * Returns the Workspace attached to this Session.
