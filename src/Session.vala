@@ -59,7 +59,7 @@ namespace GICR {
 		 *
 		 * @return The user id associated with this Session.
 		 */
-		public abstract string get_user_id ();
+		public abstract string? get_user_id ();
 
 		/**
 		 * Returns the names of the attributes set in this session as a result of
