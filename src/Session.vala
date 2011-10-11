@@ -97,7 +97,7 @@ namespace GICR {
 		 * @return The root {@link Node} of the workspace.
 		 * @throws RepositoryException if an error occurs.
 		 */
-		public abstract Node get_root_node ();
+		public abstract Node get_root_node () throws RepositoryException;
 
 		/**
 		 * Returns a new session in accordance with the specified (new) Credentials.
@@ -116,7 +116,7 @@ namespace GICR {
 		 * @throws LoginException if the current session does not have sufficient access to perform the operation.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract Session impersonate (Credentials credentials);
+		public abstract Session impersonate (Credentials credentials) throws LoginException, RepositoryException;
 
 		/**
 		 * Returns the node specified by the given identifier.
@@ -129,7 +129,7 @@ namespace GICR {
 		 * @throws ItemNotFoundException if no node with the specified identifier exists or if this Session does not have read access to the node with the specified identifier.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract Node get_node_by_identifier (string id);
+		public abstract Node get_node_by_identifier (string id) throws RepositoryException;
 
 		/**
 		 * Returns the node at the specified absolute path in the workspace.
@@ -148,7 +148,7 @@ namespace GICR {
 		 * @throws PathNotFoundException if no accessible item is found at the specified path.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract Item get_item (string absPath);
+		public abstract Item get_item (string absPath) throws RepositoryException, PathNotFoundException;
 
 		/**
 		 * Returns the node at the specified absolute path in the workspace.
@@ -159,7 +159,7 @@ namespace GICR {
 		 * @throws PathNotFoundException if no accessible node is found at the specified path.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract Node get_node (string absPath);
+		public abstract Node get_node (string absPath) throws RepositoryException, PathNotFoundException;
 
 		/**
 		 * Returns the property at the specified absolute path in the workspace.
@@ -170,7 +170,7 @@ namespace GICR {
 		 * @throws PathNotFoundException if no accessible property is found at the specified path.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract Property get_node_property (string absPath);
+		public abstract Property get_node_property (string absPath) throws RepositoryException, PathNotFoundException;
 
 		/**
 		 * Determines if the item identified by a path does exists.
@@ -183,7 +183,7 @@ namespace GICR {
 		 *
 		 * @throws RepositoryException if absPath is not a well-formed absolute path.
 		 */
-		public abstract bool item_exists (string absPath);
+		public abstract bool item_exists (string absPath) throws RepositoryException;
 
 		/**
 		 * Determines if the node identified by the given absolute path does exist.
@@ -196,7 +196,7 @@ namespace GICR {
 		 *
 		 * @throws RepositoryException if absPath is not a well-formed absolute path.
 		 */
-		public abstract bool node_exists (string absPath);
+		public abstract bool node_exists (string absPath) throws RepositoryException;
 
 		/**
 		 * Determines the existance of a property.
@@ -208,7 +208,7 @@ namespace GICR {
 		 * @return True if the property exists, False otherwise
 		 * @throws RepositoryException if absPath is not a well-formed absolute path.
 		 */
-		public abstract bool property_exists (string absPath);
+		public abstract bool property_exists (string absPath) throws RepositoryException;
 
 		/**
 		 * Moves the node at srcAbsPath (and its entire subgraph) to the new location
@@ -256,7 +256,7 @@ namespace GICR {
 		 *                                   this validation immediately.
 		 * @throws RepositoryException if the last element of destAbsPath has an index or if another error occurs.
 		 */
-		public abstract void move (string srcAbsPath, string destAbsPath);
+		public abstract void move (string srcAbsPath, string destAbsPath) throws RepositoryException, PathNotFoundException, ItemExistsException, VersionException, ConstraintViolationException, LockException;
 
 		/**
 		 * Removes the specified item and its subgraph.
@@ -289,7 +289,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 * @see Item.remove
 		 */
-		public abstract void remove_item (string absPath);
+		public abstract void remove_item (string absPath) throws VersionException, LockException, ConstraintViolationException, PathNotFoundException, RepositoryException;
 
 		/**
 		 * Validates all pending changes currently recorded in this Session.
@@ -333,7 +333,7 @@ namespace GICR {
 		 *                                                 unrecognized node type.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract void save ();
+		public abstract void save () throws AccessDeniedException, ItemExistsException, ConstraintViolationException, InvalidItemStateException, ReferentialIntegrityException, VersionException, LockException, NoSuchNodeTypeException, RepositoryException;
 
 		/**
 		 * Reloads the current session.
@@ -356,7 +356,7 @@ namespace GICR {
 		 *
 		 * @throws RepositoryException if an error occurs.
 		 */
-		public abstract void refresh (bool keepChanges);
+		public abstract void refresh (bool keepChanges) throws RepositoryException;
 
 		/**
 		 * Determines if the current session has pending changes.
@@ -367,7 +367,7 @@ namespace GICR {
 		 * @return True is Session has pending changes, False otherwise
 		 * @throws RepositoryException if an error occurs
 		 */
-		public abstract bool has_pending_changes ();
+		public abstract bool has_pending_changes () throws RepositoryException;
 
 		/**
 		 * Determines if the current session is permitted to run the passed actions.
@@ -404,7 +404,7 @@ namespace GICR {
 		 *
 		 * @throws RepositoryException if an error occurs.
 		 */
-		public abstract bool has_permission (string absPath, string[] actions);
+		public abstract bool has_permission (string absPath, string[] actions) throws RepositoryException;
 
 		/**
 		 * Determines whether this Session has permission to perform the specified actions
@@ -444,7 +444,7 @@ namespace GICR {
 		 * @throws AccessControlException If permission is denied.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract void check_permission (string absPath, string[] actions);
+		public abstract void check_permission (string absPath, string[] actions) throws RepositoryException, AccessControlException;
 
 		/**
 		 * Checks whether an operation can be performed given as much context as can
@@ -487,7 +487,7 @@ namespace GICR {
 		 *
 		 * @throws RepositoryException if an error occurs
 		 */
-		public abstract bool has_capability (string methodName, Value target, ValueArray arguments);
+		public abstract bool has_capability (string methodName, Value target, ValueArray arguments) throws RepositoryException;
 
 		/**
 		 * Deserializes an XML document and adds the resulting item subgraph as a
@@ -563,7 +563,7 @@ namespace GICR {
 		 *                                   performs this validation immediately.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract void import_xml (string parentAbsPath, string uri, int uuidBehavior);
+		public abstract void import_xml (string parentAbsPath, string uri, int uuidBehavior) throws RepositoryException, RuntimeException, PathNotFoundException, ItemExistsException, ConstraintViolationException, VersionException, InvalidSerializedDataException, LockException;
 
 		/**
 		 * Serializes the node (and if noRecurse is false, the whole subgraph) at
@@ -604,7 +604,7 @@ namespace GICR {
 		 * @throws RuntimeException if an error during an I/O operation occurs.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract void export_system_view (string absPath, GLib.IOChannel stream, bool skipBinary, bool noRecurse);
+		public abstract void export_system_view (string absPath, GLib.IOChannel stream, bool skipBinary, bool noRecurse) throws RepositoryException, PathNotFoundException,RuntimeException;
 
 		/**
 		 * Serializes the node (and if noRecurse is false, the whole subgraph) at
@@ -645,7 +645,7 @@ namespace GICR {
 		 * @throws RuntimeException if an error during an I/O operation occurs.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract void export_document_view (string absPath, GLib.IOChannel stream, bool skipBinary, bool noRecurse);
+		public abstract void export_document_view (string absPath, GLib.IOChannel stream, bool skipBinary, bool noRecurse) throws PathNotFoundException, RuntimeException, RepositoryException;
 
 		/**
 		 * Sets the name of a namespace prefix.
@@ -667,7 +667,7 @@ namespace GICR {
 		 *                                   uri are the empty string).
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract void set_namespace_prefix (string prefix, string uri);
+		public abstract void set_namespace_prefix (string prefix, string uri) throws NamespaceException, RepositoryException;
 
 		/**
 		 * Returns all prefixes currently mapped to URIs in this Session.
@@ -676,7 +676,7 @@ namespace GICR {
 		 *
 		 * @throws RepositoryException if an error occurs
 		 */
-		public abstract string[] get_namespace_prefixes ();
+		public abstract string[] get_namespace_prefixes () throws RepositoryException;
 
 		/**
 		 * Returns the URI to which the given prefix is mapped as currently set in
@@ -688,7 +688,7 @@ namespace GICR {
 		 * @throws NamespaceException if the specified prefix is unknown.
 		 * @throws RepositoryException if another error occurs
 		 */
-		public abstract string get_namespace_uri (string prefix);
+		public abstract string get_namespace_uri (string prefix) throws RepositoryException, NamespaceException;
 
 		/**
 		 * Returns the prefix to which the given uri is mapped as currently set in
@@ -700,7 +700,7 @@ namespace GICR {
 		 * @throws NamespaceException if the specified uri is unknown.
 		 * @throws RepositoryException if another error occurs
 		 */
-		public abstract string get_namespace_prefix (string uri);
+		public abstract string get_namespace_prefix (string uri) throws RepositoryException, NamespaceException;
 
 		/**
 		 * Releases all resources associated with this Session.
@@ -732,7 +732,7 @@ namespace GICR {
 		 * @throws UnsupportedRepositoryOperationException if access control is not supported.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract AccessControlManager get_access_control_manager ();
+		public abstract AccessControlManager get_access_control_manager () throws RepositoryException, UnsupportedRepositoryOperationException;
 
 		/**
 		 * Returns the retention and hold manager for this Session.
@@ -742,7 +742,7 @@ namespace GICR {
 		 * @throws UnsupportedRepositoryOperationException if retention and hold are not supported.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract RetentionManager get_retention_manager ();
+		public abstract RetentionManager get_retention_manager () throws RepositoryException, UnsupportedRepositoryOperationException;
 	}
 }
 
