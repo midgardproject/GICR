@@ -11,7 +11,7 @@ namespace GICR {
 		 * @return string the normalized absolute path of this Item.
 		 * @throws RepositoryException if an error occurs.
 		 */		
-		public abstract string get_path ();
+		public abstract string get_path () throws RepositoryException;
 
 		/**
 		 * Returns the name of this Item in qualified form.
@@ -21,7 +21,7 @@ namespace GICR {
 		 * @return string the name of this Item in qualified form or an empty string if this Item is the root node of a workspace.
 		 * @throws RepositoryException if an error occurs.
 		 */
-		public abstract string get_name ();
+		public abstract string get_name () throws RepositoryException;
 
 		/**
 		 * Returns the ancestor of this Item at the specified depth.
@@ -44,7 +44,7 @@ namespace GICR {
 		 * @throws AccessDeniedException if the current session does not have sufficient access to retrieve the specified node.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract Item get_ancestor (int depth);
+		public abstract Item get_ancestor (int depth) throws RepositoryException, ItemNotFoundException, AccessDeniedException;
 
 		/**
 		 * Returns the parent of this Item.
@@ -54,7 +54,7 @@ namespace GICR {
 		 * @throws AccessDeniedException if the current session does not have sufficent access to retrieve the parent of this item.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract Item get_parent ();
+		public abstract Item get_parent () throws RepositoryException, ItemNotFoundException, AccessDeniedException;
 
 		/**
 		 * Returns the depth of this Item in the workspace item graph.
@@ -67,7 +67,7 @@ namespace GICR {
 		 * @return integer The depth of this Item in the workspace item graph.
 		 * @throws RepositoryException if an error occurs.
 		 */
-		public abstract int get_depth ();
+		public abstract int get_depth () throws RepositoryException;
 
 		/**
 		 * Returns the Session through which this Item was acquired.
@@ -75,7 +75,7 @@ namespace GICR {
 		 * @return SessionInterface the Session through which this Item was acquired.
 		 * @throws RepositoryException if an error occurs.
 		 */
-		public abstract Session get_session ();
+		public abstract Session get_session () throws RepositoryException;
 
 		/**
 		 * Indicates whether this Item is a Node or a Property.
@@ -155,7 +155,7 @@ namespace GICR {
 		 * @return boolean true if this Item object and otherItem represent the same actual repository item; false otherwise.
 		 * @throws RepositoryException if an error occurs.
 		 */
-		public abstract bool is_same (Item other_item);
+		public abstract bool is_same (Item other_item) throws RepositoryException;
 
 		/**
 		 * If keepChanges is false, this method discards all pending changes currently recorded 
@@ -171,7 +171,7 @@ namespace GICR {
 		 * @param The {@link ItemVisitor} to be accepted.
 		 * @throws RepositoryException if an error occurs.
 		 */
-		public abstract void refresh (bool keep_changes);
+		public abstract void refresh (bool keep_changes) throws RepositoryException;
 
 		/**
 		 * Removes this item (and its subgraph).
@@ -203,7 +203,6 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 * {@link Session.remove_item}
 		 */
-		public abstract void remove ();
-
+		public abstract void remove () throws RepositoryException, VersionException, LockException, ConstraintViolationException, AccessDeniedException;
 	}
 }
