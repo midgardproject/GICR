@@ -81,7 +81,7 @@ src_libgicr_la_CPPFLAGS = \
 			  -I$(top_srcdir)/src \
 			  -DG_LOG_DOMAIN=\"GICR\"
 
-VALAFLAGS = --vapi=$(gicr_vapi_file) --vapidir=$(top_srcdir)/src  -H $(gicr_header) --gir=$(gicr_gir_file) --library gicr
+VALAFLAGS = --vapi=$(gicr_vapi_file) --vapidir=$(top_srcdir)/src  -H $(gicr_header) --pkg gee-1.0 --gir=$(gicr_gir_file) --library gicr
 
 CLEANFILES = \
 	     $(gicr_vapi_file) \
