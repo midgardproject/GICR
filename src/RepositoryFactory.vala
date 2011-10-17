@@ -45,7 +45,7 @@ namespace GICR {
 		 *                                    not understand the passed parameters
 		 * @throws RepositoryException if no suitable repository is found or another error occurs.
 		 */
-		public static Repository? get_repository (HashTable? parameters) { 
+		public static Repository? get_repository (Gee.HashMap? parameters) { 
 			return null;
 		} 
 	}
