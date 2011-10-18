@@ -101,7 +101,7 @@ namespace GICR {
 		 *      index or if another error occurs.
 		 *
 		 */
-		public abstract Node add_node (string relPath, string? primaryNodeTypeName);
+		public abstract Node add_node (string relPath, string? primaryNodeTypeName) throws ItemExistsException, PathNotFoundException, ConstraintViolationException, VersionException, LockException, InvalidArgumentException, RepositoryException;
 
 		/**
 		 * Insert a child node before another child identified by its path.
@@ -149,7 +149,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract void order_before (string srcChildRelPath, string destChildRelPath);
+		public abstract void order_before (string srcChildRelPath, string destChildRelPath) throws UnsupportedRepositoryOperationException, ConstraintViolationException, ItemNotFoundException, VersionException, LockException, InvalidArgumentException , RepositoryException ;
 
 		/**
 		 * Defines a value for a property identified by its name.
@@ -221,7 +221,7 @@ namespace GICR {
 		 * @see Property.set_value
 		 *
 		 */
-		public abstract Property set_property (string name, Value val, int? type);
+		public abstract Property set_property (string name, Value val, int? type) throws ValueFormatException, VersionException, LockException, ConstraintViolationException, RepositoryException;
 
 		/**
 		 * Returns the node at relPath relative to this node.
@@ -238,7 +238,7 @@ namespace GICR {
 		 * object. Whether this object is actually the same Node instance, or
 		 * simply one wrapping the same state, is up to the implementation.
 		 *
-		 * @param string $relPath The relative path of the node to retrieve.
+		 * @param string relPath The relative path of the node to retrieve.
 		 *
 		 * @return The node at relPath.
 		 *
@@ -249,7 +249,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract Node get_node (string relPath);
+		public abstract Node get_node (string relPath) throws PathNotFoundException, InvalidArgumentException, RepositoryException;
 
 		/**
 		 * Get a set of nodes gathered by the definition of a filter.
@@ -296,7 +296,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract Node[] get_nodes (string[]? filter);
+		public abstract Node[] get_nodes (string[]? filter) throws RepositoryException;
 
 		/**
 		 * Returns the property at relPath relative to this node.
@@ -314,7 +314,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract Property get_property (string relPath);
+		public abstract Property get_node_property (string relPath) throws PathNotFoundException, InvalidArgumentException, RepositoryException ;
 
 		/**
 		 * Returns the property of this node with name $name.
@@ -335,7 +335,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract Value get_property_value (string name, int? type);
+		public abstract Value get_property_value (string name, int? type) throws PathNotFoundException, ValueFormatException, RepositoryException ;
 
 		/**
 		 * Get an iteratable set of properties gathered on behalf of a filter.
@@ -381,7 +381,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract Property[] get_properties (string[]? filter);
+		public abstract Property[] get_properties (string[]? filter) throws RepositoryException ;
 
 		/**
 		 * Shortcut for getProperties and then getting the values of the properties.
@@ -402,7 +402,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract ValueArray get_properties_values (string[] filter, bool dereference = true);
+		public abstract ValueArray get_properties_values (string[] filter, bool dereference = true) throws RepositoryException ;
 
 		/**
 		 * Returns the primary child item of the current node.
@@ -426,7 +426,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract Item get_primary_item ();
+		public abstract Item get_primary_item ()  throws RepositoryException, ItemNotFoundException ;
 
 		/**
 		 * Returns the identifier of the current node.
@@ -438,7 +438,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract string get_identifier ();
+		public abstract string get_identifier ()  throws RepositoryException ;
 
 		/**
 		 * This method returns the index of this node within the ordered set of its
@@ -456,7 +456,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract int get_index();
+		public abstract int get_index() throws RepositoryException;
 
 		/**
 		 * This method returns all REFERENCE properties that refer to this node,
@@ -487,7 +487,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs
 		 *
 		 */
-		public abstract Property[] get_references (string? name);
+		public abstract Property[] get_references (string? name) throws RepositoryException;
 
 		/**
 		 * This method returns all WEAKREFERENCE properties that refer to this
@@ -518,7 +518,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs
 		 *
 		 */
-		public abstract Property[] get_weak_references (string? name);
+		public abstract Property[] get_weak_references (string? name) throws RepositoryException;
 
 		/**
 		 * Indicates whether a node exists at relPath Returns true if a node
@@ -533,7 +533,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract bool has_node (string relPath);
+		public abstract bool has_node (string relPath) throws RepositoryException, InvalidArgumentException;
 
 		/**
 		 * Determine if a property exists at the specified path.
@@ -550,7 +550,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract bool has_property (string relPath);
+		public abstract bool has_property (string relPath) throws InvalidArgumentException, RepositoryException;
 
 		/**
 		 * Indicates whether this node has child nodes.
@@ -563,7 +563,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract bool has_nodes ();
+		public abstract bool has_nodes () throws RepositoryException;
 
 		/**
 		 * Indicates whether this node has properties.
@@ -576,7 +576,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract bool has_properties ();
+		public abstract bool has_properties () throws RepositoryException;
 
 		/**
 		 * Returns the primary node type in effect for this node.
@@ -589,7 +589,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs
 		 *
 		 */
-		public abstract NodeType get_primary_node_type ();
+		public abstract NodeType get_primary_node_type () throws RepositoryException;
 
 		/**
 		 * Returns an array of NodeType objects representing the mixin node types
@@ -605,7 +605,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs
 		 *
 		 */
-		public abstract NodeType[] get_mixin_node_types ();
+		public abstract NodeType[] get_mixin_node_types () throws RepositoryException;
 
 		/**
 		 * Returns true if this node is of the specified primary node type or mixin
@@ -622,7 +622,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract bool is_node_type (string nodeTypeName);
+		public abstract bool is_node_type (string nodeTypeName) throws RepositoryException;
 
 		/**
 		 * Changes the primary node type of this node to nodeTypeName.
@@ -653,7 +653,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract void set_primary_type (string nodeTypeName);
+		public abstract void set_primary_type (string nodeTypeName) throws RepositoryException, ConstraintViolationException, NoSuchNodeTypeException, VersionException, LockException;
 
 		/**
 		 * Adds the mixin node type named mixinName to this node.
@@ -697,7 +697,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract void add_mixin (string mixinName);
+		public abstract void add_mixin (string mixinName) throws LockException, NoSuchNodeTypeException, ConstraintViolationException, VersionException, RepositoryException;
 
 		/**
 		 * Removes the specified mixin node type from this node and removes
@@ -724,7 +724,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract void remove_mixin (string mixinName);
+		public abstract void remove_mixin (string mixinName) throws NoSuchNodeTypeException, ConstraintViolationException, VersionException, LockException, RepositoryException;
 
 		/**
 		 * Determine if a mixin node type may be added to the current node.
@@ -753,7 +753,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract bool can_add_mixin (string mixinName);
+		public abstract bool can_add_mixin (string mixinName) throws NoSuchNodeTypeException, RepositoryException;
 
 		/**
 		 * Returns the node definition that applies to this node.
@@ -773,7 +773,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract NodeDefinition get_definition ();
+		public abstract NodeDefinition get_definition () throws RepositoryException;
 
 		/**
 		 * Updates a node corresponding to the current one in the given workspace.
@@ -804,7 +804,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract void update (string srcWorkspace);
+		public abstract void update (string srcWorkspace) throws NoSuchWorkspaceException, InvalidItemStateException, AccessDeniedException, LockException, RepositoryException;
 
 		/**
 		 * Returns the absolute path of the node in the specified workspace that
@@ -821,7 +821,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract string get_corresponding_node_path (string workspaceName);
+		public abstract string get_corresponding_node_path (string workspaceName) throws ItemNotFoundException, NoSuchWorkspaceException, AccessDeniedException;
 
 		/**
 		 * Returns an array of all nodes that are in the shared set of this
@@ -835,7 +835,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract Node[] get_shared_set ();
+		public abstract Node[] get_shared_set () throws RepositoryException;
 
 		/**
 		 * Removes this node and every other node in the shared set of this node.
@@ -864,7 +864,7 @@ namespace GICR {
 		 * @see Session.remove_item
 		 *
 		 */
-		public abstract void remove_shared_set ();
+		public abstract void remove_shared_set () throws VersionException, LockException, ConstraintViolationException;
 
 		/**
 		 * Removes this node, but does not remove any other node in the shared set
@@ -891,7 +891,7 @@ namespace GICR {
 		 * @see Session.remove_item
 		 *
 		 */
-		public abstract void remove_share ();
+		public abstract void remove_share () throws VersionException, LockException, ConstraintViolationException, RepositoryException;
 
 		/**
 		 * Determine if the current node is currently checked out.
@@ -908,7 +908,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract bool is_checked_out();
+		public abstract bool is_checked_out() throws RepositoryException;
 
 		/**
 		 * Determine if the current node has been locked.
@@ -923,7 +923,7 @@ namespace GICR {
 		 * @throws RepositoryException if an error occurs.
 		 *
 		 */
-		public abstract bool is_locked();
+		public abstract bool is_locked() throws RepositoryException;
 
 		/**
 		 * Causes the lifecycle state of this node to undergo the specified
@@ -948,7 +948,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract void follow_lifecycle_transition (string transition);
+		public abstract void follow_lifecycle_transition (string transition) throws UnsupportedRepositoryOperationException, InvalidLifecycleTransitionException, RepositoryException;
 
 		/**
 		 * Returns the list of valid state transitions for this node.
@@ -961,6 +961,6 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract string[] get_allowed_lifecycle_transitions ();
+		public abstract string[] get_allowed_lifecycle_transitions () throws UnsupportedRepositoryOperationException, RepositoryException;
 	}
 }
