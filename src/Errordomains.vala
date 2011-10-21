@@ -26,7 +26,7 @@ namespace GICR {
 	}
 
 	public errordomain ItemExistsException {
-		VALUE_FORMAT		
+		INTERNAL		
 	}
 
 	public errordomain AccessDeniedException {
