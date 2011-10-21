@@ -22,7 +22,7 @@ namespace GICR {
 	}
 
 	public errordomain ItemNotFoundException {
-		VALUE_FORMAT		
+		INTERNAL		
 	}
 
 	public errordomain ItemExistsException {
