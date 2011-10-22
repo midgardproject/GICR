@@ -18,7 +18,7 @@ namespace GICR {
 	}
 
 	public errordomain PathNotFoundException {
-		VALUE_FORMAT		
+		INTERNAL		
 	}
 
 	public errordomain ItemNotFoundException {
