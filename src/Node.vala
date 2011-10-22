@@ -221,7 +221,7 @@ namespace GICR {
 		 * @see Property.set_value
 		 *
 		 */
-		public abstract Property set_property (string name, Value val, int? type) throws ValueFormatException, VersionException, LockException, ConstraintViolationException, RepositoryException;
+		public abstract Property set_node_property (string name, Value? val, int? type) throws ValueFormatException, VersionException, LockException, ConstraintViolationException, RepositoryException;
 
 		/**
 		 * Returns the node at relPath relative to this node.
