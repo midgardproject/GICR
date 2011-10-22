@@ -444,14 +444,14 @@ namespace GICR {
 		 *                                   format defined in the JCR 2.0 specification and the implementation does not
 		 *                                   support dates incompatible with that format.
 		 */
-		public abstract void set_value (Value val, int type);
+		public abstract void set_value (Value val, int type) throws ValueFormatException, VersionException, LockException, ConstraintViolationException, RepositoryException, InvalidArgumentException;
 
 		/**
 		 * Sets the values of this property
 		 *
 		 * @see Property.set_value
 		 */
-		public abstract void set_values (ValueArray values, int type);			
+		public abstract void set_values (ValueArray values, int type) throws ValueFormatException, VersionException, LockException, ConstraintViolationException, RepositoryException, InvalidArgumentException;			
 
 		/**
 		 * Get the value in format default for the PropertyType of this property.
@@ -478,7 +478,7 @@ namespace GICR {
 		 * @throws ValueFormatException if conversion to a String is not possible
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract string get_string ();
+		public abstract string get_string () throws ValueFormatException, RepositoryException;
 
 		/**
 		 * Returns a Binary representation of the value of this property.
@@ -490,7 +490,7 @@ namespace GICR {
 		 *
 		 * @throws RepositoryException if another error occurs
 		 */
-		public abstract GLib.IOChannel get_binary ();
+		public abstract GLib.IOChannel get_binary () throws RepositoryException;
 
 		/**
 		 * Returns a long  representation of the value of this property.
@@ -500,7 +500,7 @@ namespace GICR {
 		 * @throws ValueFormatException if conversion to integer is not possible
 		 * @throws RepositoryException if another error occurs
 		 */
-		public abstract long get_long ();
+		public abstract long get_long () throws ValueFormatException, RepositoryException;
 
 		/**
 		 * Returns float representation of the value of this property.
@@ -510,7 +510,7 @@ namespace GICR {
 		 * @throws ValueFormatException if conversion to a double is not possible
 		 * @throws RepositoryException if another error occurs
 		 */
-		public abstract float get_double ();
+		public abstract float get_double () throws ValueFormatException, RepositoryException;
 
 		/**
 		 * Returns an arbitrary precision number 
@@ -520,7 +520,7 @@ namespace GICR {
 		 * @throws ValueFormatException if conversion to a number string is not possible
 		 * @throws RepositoryException if another error occurs
 		 */
-		public abstract double get_decimal ();
+		public abstract double get_decimal () throws ValueFormatException, RepositoryException;
 
 		/**
 		 * Returns a DateTime representation of the value of this property.
@@ -533,7 +533,7 @@ namespace GICR {
 		 * @throws ValueFormatException if conversion to \DateTime is not possible
 		 * @throws RepositoryException if another error occurs
 		 */
-		public abstract DateTime get_date ();
+		public abstract DateTime get_date () throws ValueFormatException, RepositoryException;
 
 		/**
 		 * Returns a boolean representation of the value of this property.
@@ -543,7 +543,7 @@ namespace GICR {
 		 * @throws ValueFormatException if conversion to a boolean is not possible
 		 * @throws RepositoryException if another error occurs
 		 */
-		public abstract bool get_boolean ();
+		public abstract bool get_boolean () throws ValueFormatException, RepositoryException;
 
 		/**
 		 * Gets the node the property refers to by its type.
@@ -575,7 +575,7 @@ namespace GICR {
 		 *                                      target node), the method PropertyInterface::getProperty() is used.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract Node get_node ();
+		public abstract Node get_node () throws ValueFormatException, RepositoryException, ItemNotFoundException;
 
 		/**
 		 * Gets the property the property refers to by its type.
@@ -602,7 +602,7 @@ namespace GICR {
 		 *                                      PropertyInterface::getNode() is used.
 		 * @throws RepositoryException if another error occurs
 		 */
-		public abstract Property get_property ();
+		public abstract Property get_node_property () throws ValueFormatException, RepositoryException, ItemNotFoundException;
 
 		/**
 		 * Returns the length of the value of this property.
@@ -621,7 +621,7 @@ namespace GICR {
 		 * @see Property.get_lengths
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract long get_length ();
+		public abstract long get_length () throws RepositoryException;
 
 		/**
 		 * Returns the lengths of the values of this property.
@@ -630,7 +630,7 @@ namespace GICR {
 		 * @see Property.get_length
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract long get_lengths ();
+		public abstract long get_lengths () throws RepositoryException;
 
 		/**
 		 * Returns the property definition that applies to this property. In some
@@ -646,7 +646,7 @@ namespace GICR {
 		 *
 		 * @throws RepositoryException if an error occurs.
 		 */
-		public abstract PropertyDefinition get_definition ();
+		public abstract PropertyDefinition get_definition () throws RepositoryException;
 
 		/**
 		 * Returns the type of this Property.
@@ -674,7 +674,7 @@ namespace GICR {
 		 *
 		 * @throws RepositoryException if an error occurs
 		 */
-		public abstract int get_property_type ();
+		public abstract int get_property_type () throws RepositoryException;
 
 		/**
 		 * Determines if the current property is multi-valued.
@@ -686,6 +686,6 @@ namespace GICR {
 		 *
 		 * @throws RepositoryException if an error occurs.
 		 */
-		public abstract bool is_multiple ();
+		public abstract bool is_multiple () throws RepositoryException;
 	}
 }
