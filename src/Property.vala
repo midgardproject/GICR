@@ -503,14 +503,14 @@ namespace GICR {
 		public abstract long get_long () throws ValueFormatException, RepositoryException;
 
 		/**
-		 * Returns float representation of the value of this property.
+		 * Returns double representation of the value of this property.
 		 *
-		 * @return float
+		 * @return double
 		 *
 		 * @throws ValueFormatException if conversion to a double is not possible
 		 * @throws RepositoryException if another error occurs
 		 */
-		public abstract float get_double () throws ValueFormatException, RepositoryException;
+		public abstract double get_double () throws ValueFormatException, RepositoryException;
 
 		/**
 		 * Returns an arbitrary precision number 
