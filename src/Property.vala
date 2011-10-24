@@ -459,8 +459,11 @@ namespace GICR {
 		 * In case of a binary property, this is the stream of binary data.
 		 *
 		 * @return value of this property
+		 *
+		 * @throws ValueFormatException if the property is multi-valued. 
+		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract Value get_value ();
+		public abstract Value get_value () throws ValueFormatException, RepositoryException;
 
 		/**
 		 * Get the value in format default for the PropertyType of this property.
@@ -468,8 +471,11 @@ namespace GICR {
 		 * In case of a binary property, this is the stream of binary data.
 		 *
 		 * @return array of values of this property
+		 *
+		 * @throws ValueFormatException if the property is single-valued. 
+		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract ValueArray get_values ();
+		public abstract ValueArray get_values () throws ValueFormatException, RepositoryException;
 
 
 		/**
