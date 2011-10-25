@@ -676,11 +676,11 @@ namespace GICR {
 		 * where the latter returns UNDEFINED. The type of a property instance is
 		 * never UNDEFINED (it must always have some actual type).
 		 *
-		 * @return integer The numerical representation of a property type.
+		 * @return unsigned integer The numerical representation of a property type.
 		 *
 		 * @throws RepositoryException if an error occurs
 		 */
-		public abstract int get_property_type () throws RepositoryException;
+		public abstract uint get_property_type () throws RepositoryException;
 
 		/**
 		 * Determines if the current property is multi-valued.
