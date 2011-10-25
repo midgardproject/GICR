@@ -521,12 +521,12 @@ namespace GICR {
 		/**
 		 * Returns an arbitrary precision number 
 		 *
-		 * @return double
+		 * @return float
 		 *
 		 * @throws ValueFormatException if conversion to a number string is not possible
 		 * @throws RepositoryException if another error occurs
 		 */
-		public abstract double get_decimal () throws ValueFormatException, RepositoryException;
+		public abstract float get_float () throws ValueFormatException, RepositoryException;
 
 		/**
 		 * Returns a DateTime representation of the value of this property.
