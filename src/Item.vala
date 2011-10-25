@@ -54,7 +54,7 @@ namespace GICR {
 		 * @throws AccessDeniedException if the current session does not have sufficent access to retrieve the parent of this item.
 		 * @throws RepositoryException if another error occurs.
 		 */
-		public abstract Item get_parent () throws RepositoryException, ItemNotFoundException, AccessDeniedException;
+		public abstract Node get_parent () throws RepositoryException, ItemNotFoundException, AccessDeniedException;
 
 		/**
 		 * Returns the depth of this Item in the workspace item graph.
