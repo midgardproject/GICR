@@ -201,9 +201,36 @@ namespace GICR {
 		 *
 		 * @throws InvalidArgumentException if the given type is unknown.
 		 */
-		public static string? name_from_value (uint type)
-    		{
-			return null;
+		public static string name_from_value (uint type) {
+			switch (type) {
+				case UNDEFINED:
+					return TYPENAME_UNDEFINED;
+				case STRING:
+					return TYPENAME_STRING;
+				case BINARY:
+					return TYPENAME_BINARY;
+				case LONG:
+					return TYPENAME_LONG;
+				case DOUBLE:
+					return TYPENAME_DOUBLE;
+				case DATE:
+					return TYPENAME_DATE;
+				case BOOLEAN:
+					return TYPENAME_BOOLEAN;
+				case NAME:
+					return TYPENAME_NAME;
+				case PATH:
+					return TYPENAME_PATH;
+				case REFERENCE:
+					return TYPENAME_REFERENCE;
+				case WEAKREFERENCE:
+					return TYPENAME_WEAKREFERENCE;
+				case URI:
+					return TYPENAME_URI;
+				case DECIMAL:
+					return TYPENAME_DECIMAL;
+			}
+			return PropertyType.TYPENAME_UNDEFINED;
 		}
 
 		/**
@@ -214,9 +241,36 @@ namespace GICR {
 		 *
 		 * @throws InvalidArgumentException if the given name is unknown.
 		 */
-		public static uint value_from_name (string name)
-    		{
-			return 0;
+		public static uint value_from_name (string name) {
+			switch (name) {
+				case TYPENAME_UNDEFINED:
+					return UNDEFINED;
+				case TYPENAME_STRING:
+					return STRING;
+				case TYPENAME_BINARY:
+					return BINARY;
+				case TYPENAME_LONG:
+					return LONG;
+				case TYPENAME_DOUBLE:
+					return DOUBLE;
+				case TYPENAME_DATE:
+					return DATE;
+				case TYPENAME_BOOLEAN:
+					return BOOLEAN;
+				case TYPENAME_NAME:
+					return NAME;
+				case TYPENAME_PATH:
+					return PATH;
+				case TYPENAME_REFERENCE:
+					return REFERENCE;
+				case TYPENAME_WEAKREFERENCE:
+					return WEAKREFERENCE;
+				case TYPENAME_URI:
+					return URI;
+				case TYPENAME_DECIMAL:
+					return DECIMAL;
+			}
+			return UNDEFINED;
 		}
 	}
 }
