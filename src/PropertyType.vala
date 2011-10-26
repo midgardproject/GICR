@@ -201,7 +201,7 @@ namespace GICR {
 		 *
 		 * @throws InvalidArgumentException if the given type is unknown.
 		 */
-		public static string? name_from_value (int type)
+		public static string? name_from_value (uint type)
     		{
 			return null;
 		}
@@ -214,7 +214,7 @@ namespace GICR {
 		 *
 		 * @throws InvalidArgumentException if the given name is unknown.
 		 */
-		public static int value_from_name (string name)
+		public static uint value_from_name (string name)
     		{
 			return 0;
 		}
