@@ -493,7 +493,7 @@ namespace GICR {
 		 *
 		 * @throws RepositoryException if another error occurs
 		 */
-		public abstract GLib.DataInputStream get_binary () throws RepositoryException;
+		public abstract GLib.DataInputStream get_binary () throws ValueFormatException, RepositoryException;
 
 		/**
 		 * Returns a long  representation of the value of this property.
