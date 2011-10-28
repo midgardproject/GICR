@@ -310,11 +310,10 @@ namespace GICR {
 		 * @throws PathNotFoundException if no property exists at the
 		 *      specified path or if the current Session does not have read access
 		 *      to the specified property.
-		 * @throws InvalidArgumentException if relPath is an absolute path
 		 * @throws RepositoryException if another error occurs.
 		 *
 		 */
-		public abstract Property get_node_property (string relPath) throws PathNotFoundException, InvalidArgumentException, RepositoryException ;
+		public abstract Property get_node_property (string relPath) throws PathNotFoundException, RepositoryException;
 
 		/**
 		 * Returns the property of this node with name $name.
