@@ -440,18 +440,15 @@ namespace GICR {
 		 * @throws ConstraintViolationException if the change wouldva violate a node-type or other constraint and
 		 *                                             this implementation performs this validation immediately.
 		 * @throws RepositoryException if another error occurs.
-		 * @throws InvalidArgumentException if the specified DateTime value cannot be expressed in the ISO 8601-based
-		 *                                   format defined in the JCR 2.0 specification and the implementation does not
-		 *                                   support dates incompatible with that format.
 		 */
-		public abstract void set_value (Value val, int type) throws ValueFormatException, VersionException, LockException, ConstraintViolationException, RepositoryException, InvalidArgumentException;
+		public abstract void set_value (Value val, int type) throws ValueFormatException, VersionException, LockException, ConstraintViolationException, RepositoryException;
 
 		/**
 		 * Sets the values of this property
 		 *
 		 * @see Property.set_value
 		 */
-		public abstract void set_values (ValueArray values, int type) throws ValueFormatException, VersionException, LockException, ConstraintViolationException, RepositoryException, InvalidArgumentException;			
+		public abstract void set_values (ValueArray values, int type) throws ValueFormatException, VersionException, LockException, ConstraintViolationException, RepositoryException;			
 
 		/**
 		 * Get the value in format default for the PropertyType of this property.
