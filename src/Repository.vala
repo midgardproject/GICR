@@ -400,7 +400,7 @@ namespace GICR {
 		 * @throws RepositoryException if another error occurs
 		 *
 		 */
-		public abstract Session login (Credentials credentials, string? workspace_name) throws RepositoryException;
+		public abstract Session login (Credentials? credentials, string? workspace_name) throws RepositoryException;
 
 		/**
 		 * Returns a string array holding all descriptor keys available for this implementation.
