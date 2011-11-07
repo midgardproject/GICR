@@ -54,7 +54,7 @@ namespace GICR {
 		 * Stores an attribute in this credentials instance.
 		 * 
 		 * @param name a String specifying the name of the attribute
-		 * @val the value to be stored
+		 * @param val the value to be stored
 		 */
 		public void set_attribute (string name, Value val) {
 			throw new RepositoryException.INTERNAL ("Not supported");
